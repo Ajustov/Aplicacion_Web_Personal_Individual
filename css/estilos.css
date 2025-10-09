@@ -1,0 +1,123 @@
+#contenedor-principal {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('imagenes/fondo_pagina.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #26492f;
+}
+
+nav {
+    padding: 0;
+}
+
+nav h2 {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 10px 0;
+}
+
+#menu-general ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: #333;
+}
+
+#menu-general li {
+    flex: 1;
+}
+
+#menu-general a {
+    display: block;
+    text-align: center;
+    padding: 12px 0;
+    color: #fff;
+    text-decoration: none;
+}
+
+#menu-general a:hover {
+    background-color: #555;
+}
+
+#menu-rapido-seccion {
+    width: 100%;
+    border: 2px solid #333;
+    border-radius: 15px;
+    margin: 20px 0;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    background-color: transparent;
+}
+
+#menu-rapido-title {
+    text-align: left;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+    padding-left: 5px;
+    color: #333;
+    background-color: transparent;
+}
+
+#menu-rapido {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#menu-rapido li {
+    position: relative;
+    padding-left: 20px;
+    margin: 5px 0;
+    text-decoration: underline;
+}
+
+#menu-rapido li::before {
+    content: "-";
+    position: absolute;
+    left: 0;
+    color: #333;
+}
+
+#menu-rapido a {
+    text-decoration: underline;
+    color: #333;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+#menu-rapido a:hover {
+    background-color: #ddd;
+    color: #000;
+}
+
+#pie-pagina {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#pie-pagina a {
+    text-decoration: underline;
+    font-weight: bold;
+    color: #26492f;
+}
+
+#pie-pagina a:hover {
+    color: #000;
+}
