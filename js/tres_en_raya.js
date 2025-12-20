@@ -1,65 +1,86 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 
-    // Referencias a elementos del juego
+    // REFERENCIAS: Elementos de la interfaz del juego
     const casillas = document.querySelectorAll('.casilla');
     const mensaje = document.getElementById('mensaje');
+    const btnReiniciar = document.getElementById('reiniciar');
 
-    // Variables de estado del juego
+    // ESTADO: Variables de control de la partida
     let turno = 'X';
     let tablero = Array(9).fill('');
     let juegoTerminado = false;
 
-    // Evento de clic en cada casilla
+    // COMBINACIONES GANADORAS
+    const combinaciones = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Horizontales
+        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Verticales
+        [0, 4, 8], [2, 4, 6]             // Diagonales
+    ];
+
+    // EVENTO CLIC: Manejo de movimientos
     casillas.forEach(casilla => {
         casilla.addEventListener('click', () => {
             const pos = casilla.dataset.pos;
 
-            // Validar movimiento
-            if (tablero[pos] === '' && !juegoTerminado) {
-                tablero[pos] = turno;
-                casilla.textContent = turno;
+            // Validación: Casilla libre y juego activo
+            if (tablero[pos] !== '' || juegoTerminado) return;
 
-                // Verificar si hay ganador
-                if (verificarGanador(turno)) {
-                    mensaje.textContent = `¡${turno} ha ganado!`;
-                    juegoTerminado = true;
+            // Registrar jugada
+            tablero[pos] = turno;
+            casilla.textContent = turno;
+            casilla.classList.add('ocupada'); // marca visualmente la casilla
 
-                // Verificar empate
-                } else if (tablero.every(c => c !== '')) {
-                    mensaje.textContent = "¡Empate!";
-                    juegoTerminado = true;
+            // Verificar ganador
+            const combinacionGanadora = obtenerCombinacionGanadora(turno);
 
+            if (combinacionGanadora) {
+                mensaje.textContent = `¡${turno} ha ganado!`;
+                mensaje.classList.add('ganador');
+                juegoTerminado = true;
+
+                // Resaltar casillas ganadoras
+                combinacionGanadora.forEach(i => {
+                    casillas[i].classList.add('ganadora');
+                });
+
+            } else if (tablero.every(c => c !== '')) {
+                mensaje.textContent = "¡Empate!";
+                mensaje.classList.add('empate');
+                juegoTerminado = true;
+
+            } else {
                 // Cambiar turno
-                } else {
-                    turno = turno === 'X' ? 'O' : 'X';
-                    mensaje.textContent = `Turno de ${turno}`;
-                }
+                turno = turno === 'X' ? 'O' : 'X';
+                mensaje.textContent = `Turno de ${turno}`;
             }
         });
     });
 
-    // Comprueba las combinaciones ganadoras
-    function verificarGanador(jugador) {
-        const combinaciones = [
-            [0,1,2], [3,4,5], [6,7,8],
-            [0,3,6], [1,4,7], [2,5,8],
-            [0,4,8], [2,4,6]
-        ];
-
-        return combinaciones.some(comb =>
-            comb.every(i => tablero[i] === jugador)
-        );
+    // FUNCIÓN: Devuelve la combinación ganadora o null
+    function obtenerCombinacionGanadora(jugador) {
+        for (let comb of combinaciones) {
+            if (comb.every(i => tablero[i] === jugador)) {
+                return comb;
+            }
+        }
+        return null;
     }
 
-    // Reinicia el estado del juego
-    document.getElementById('reiniciar').addEventListener('click', () => {
+    // REINICIAR JUEGO
+    btnReiniciar.addEventListener('click', () => {
         tablero.fill('');
-        casillas.forEach(c => c.textContent = '');
         turno = 'X';
         juegoTerminado = false;
+
+        casillas.forEach(c => {
+            c.textContent = '';
+            c.classList.remove('ocupada', 'ganadora');
+        });
+
         mensaje.textContent = `Turno de ${turno}`;
+        mensaje.classList.remove('ganador', 'empate');
     });
 
-    // Mensaje inicial
+    // MENSAJE INICIAL
     mensaje.textContent = `Turno de ${turno}`;
 });

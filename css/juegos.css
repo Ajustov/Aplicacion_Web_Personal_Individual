@@ -1,69 +1,53 @@
-/* SECCIÓN DE LISTA DE JUEGOS
-Contiene y organiza visualmente el
-listado de juegos disponibles, centrando
-todo el contenido en la página. */
+/* JUEGOS: Contenedor principal centrado con Flexbox */
 #juegos {
-    display: flex; /* Usa flexbox para organizar el contenido */
-    flex-direction: column; /* Coloca los elementos en columna */
-    align-items: center; /* Centra los elementos horizontalmente */
-    margin: 50px 20px; /* Espaciado exterior superior e inferior */
-    font-family: Arial, sans-serif; /* Tipografía simple y legible */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px 20px;
+    font-family: Arial, sans-serif;
 }
 
-/* TÍTULO DE LA SECCIÓN DE JUEGOS
-Define el estilo visual del encabezado
-que introduce el listado de juegos. */
+/* TÍTULO JUEGOS: Encabezado naranja destacado y centrado */
 #juegos h2 {
-    font-size: 32px; /* Tamaño grande para destacar el título */
-    color: #F57C00; /* Color naranja acorde al estilo del sitio */
-    margin-bottom: 30px; /* Separación inferior del listado */
-    text-align: center; /* Centra el texto horizontalmente */
+    font-size: 32px;
+    color: #F57C00;
+    margin-bottom: 30px;
+    text-align: center;
 }
 
-/* LISTA DE JUEGOS
-Organiza los juegos de forma flexible,
-permitiendo que se acomoden según
-el tamaño de la pantalla. */
+/* LISTA JUEGOS: Flexbox con wrap para organizar tarjetas de forma fluida */
 .lista-juegos {
-    list-style: none; /* Elimina los puntos de la lista */
-    display: flex; /* Usa flexbox para alinear los elementos */
-    flex-wrap: wrap; /* Permite que los elementos pasen a otra fila */
-    justify-content: center; /* Centra los juegos horizontalmente */
-    gap: 20px; /* Espacio entre cada elemento */
-    padding: 0; /* Elimina el padding por defecto */
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
 }
 
-/* ELEMENTOS INDIVIDUALES DE LA LISTA
-Define el comportamiento básico de cada
-ítem dentro del listado de juegos. */
+/* LI JUEGOS: Reseteo de márgenes para los ítems de lista */
 .lista-juegos li {
-    margin: 0; /* Elimina márgenes innecesarios */
+    margin: 0;
 }
 
-/* ENLACES DE LOS JUEGOS
-Estiliza cada juego como una tarjeta
-clicable con fondo degradado y efectos
-visuales atractivos. */
+/* ENLACES JUEGOS: Estilo de tarjeta con degradado y sombra */
 .lista-juegos a {
-    display: block; /* Permite aplicar padding y dimensiones */
-    text-decoration: none; /* Elimina el subrayado del enlace */
-    background: linear-gradient(135deg, #F57C00 0%, #EF6C00 100%); /* Fondo degradado */
-    color: white; /* Texto en color blanco */
-    padding: 20px 40px; /* Espaciado interno amplio */
-    border-radius: 15px; /* Bordes redondeados */
-    font-size: 20px; /* Tamaño del texto */
-    font-weight: 600; /* Grosor del texto */
-    text-align: center; /* Centra el texto */
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2); /* Sombra inicial */
-    transition: transform 0.3s, box-shadow 0.3s, background 0.3s; /* Transiciones suaves */
+    display: block;
+    text-decoration: none;
+    background: linear-gradient(135deg, #F57C00 0%, #EF6C00 100%);
+    color: white;
+    padding: 20px 40px;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
 }
 
-/* EFECTO HOVER DE LOS JUEGOS
-Proporciona una animación visual que
-refuerza la interactividad al pasar
-el cursor sobre cada juego. */
+/* HOVER JUEGOS: Elevación, sombra profunda e inversión de degradado */
 .lista-juegos a:hover {
-    transform: translateY(-5px); /* Eleva ligeramente la tarjeta */
-    box-shadow: 0 12px 25px rgba(0,0,0,0.3); /* Intensifica la sombra */
-    background: linear-gradient(135deg, #EF6C00 0%, #F57C00 100%); /* Invierte el degradado */
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+    background: linear-gradient(135deg, #EF6C00 0%, #F57C00 100%);
 }

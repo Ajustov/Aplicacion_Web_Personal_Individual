@@ -1,80 +1,62 @@
-/* CONTENEDOR PRINCIPAL DEL JUEGO
-Organiza el juego de adivinar el número
-en una columna, centrando todos los
-elementos en pantalla. */
+/* ADIVINAR NÚMERO: Contenedor principal centrado con Flexbox */
 #adivinarNumero {
-    display: flex; /* Usa flexbox para organizar el contenido */
-    flex-direction: column; /* Coloca los elementos en columna */
-    align-items: center; /* Centra los elementos horizontalmente */
-    margin-top: 50px; /* Separación superior respecto al contenido anterior */
-    font-family: Arial, sans-serif; /* Tipografía simple y legible */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    font-family: Arial, sans-serif;
 }
 
-/* TÍTULO DEL JUEGO
-Define un estilo propio para el título,
-evitando animaciones y subrayados
-heredados del estilo general. */
+/* TÍTULO JUEGO: Estilo oscuro y limpio sin animaciones heredadas */
 #adivinarNumero h2 {
-    margin-bottom: 20px; /* Espacio inferior para separar del input */
-    color: #000000b7; /* Color oscuro semitransparente */
-    font-size: 28px; /* Tamaño del texto del título */
-    font-weight: 700; /* Grosor del texto para mayor énfasis */
-    text-align: center; /* Centra el texto horizontalmente */
-
-    /* Sobrescribe animaciones heredadas del sitio */
+    margin-bottom: 20px;
+    color: #000000b7;
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
     animation: none !important;
 }
 
-/* ELIMINACIÓN DEL SUBRAYADO DECORATIVO
-Evita que se aplique el pseudo-elemento
-::after usado en otros títulos del sitio. */
+/* DECORACIÓN: Elimina el subrayado de otros h2 del sitio */
 #adivinarNumero h2::after {
     content: none !important;
 }
 
-/* CAMPO DE ENTRADA DEL JUEGO
-Estiliza el input donde el usuario
-ingresa el número a adivinar. */
+/* INPUT JUEGO: Campo centrado con bordes redondeados para el número */
 #adivinarNumero input {
-    padding: 10px; /* Espaciado interno para mejor usabilidad */
-    font-size: 1.1em; /* Tamaño del texto del input */
-    width: 150px; /* Ancho fijo para mantener uniformidad */
-    margin-bottom: 10px; /* Separación inferior */
-    border-radius: 8px; /* Bordes redondeados */
-    border: 2px solid #ccc; /* Borde gris suave */
-    text-align: center; /* Centra el número ingresado */
+    padding: 10px;
+    font-size: 1.1em;
+    width: 150px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    text-align: center;
 }
-/* BOTONES DEL JUEGO
-Define el estilo de los botones utilizados
-para interactuar con el juego de adivinar
-el número. */
+
+/* BOTONES JUEGO: Estilo verde con bordes redondeados e interactivos */
 #adivinarNumero button {
-    margin: 5px; /* Separación entre botones */
-    padding: 10px 20px; /* Espaciado interno del botón */
-    font-size: 1.1em; /* Tamaño del texto */
-    border-radius: 8px; /* Bordes redondeados */
-    border: none; /* Elimina el borde por defecto */
-    cursor: pointer; /* Indica que el botón es interactivo */
-    background-color: #4CAF50; /* Color verde para acciones */
-    color: white; /* Texto en color blanco */
-    transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-/* EFECTO HOVER DE LOS BOTONES
-Proporciona retroalimentación visual
-cuando el usuario interactúa con ellos. */
+/* HOVER BOTONES: Oscurece el fondo y aumenta ligeramente la escala */
 #adivinarNumero button:hover {
-    background-color: #45a049; /* Oscurece el color al pasar el mouse */
-    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+    background-color: #45a049;
+    transform: scale(1.05);
 }
 
-/* MENSAJE DE PISTAS DEL JUEGO
-Muestra indicaciones como "mayor" o
-"menor" de forma clara y centrada. */
+/* MENSAJE PISTAS: Texto de estado (mayor/menor) centrado y legible */
 #adivinarNumero #mensaje {
-    margin-top: 20px; /* Separación superior */
-    font-size: 20px; /* Tamaño del texto del mensaje */
-    font-weight: 600; /* Grosor del texto */
-    color: #333; /* Color oscuro para buena legibilidad */
-    text-align: center; /* Centra el texto */
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
 }

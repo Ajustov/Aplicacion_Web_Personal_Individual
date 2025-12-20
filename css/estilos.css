@@ -1,317 +1,244 @@
-/* RESET GENERAL DEL SITIO
-Se utiliza para eliminar los estilos por defecto
-que los navegadores aplican automáticamente.
-Esto permite que todos los elementos partan
-desde un mismo punto visual.*/
+/* RESET GENERAL: Elimina estilos por defecto y define box-sizing */
 * {
-    margin: 0; /* Elimina el margen externo por defecto de todos los elementos */
-    padding: 0; /* Elimina el relleno interno por defecto de todos los elementos */
-    box-sizing: border-box; /* Incluye padding y borde dentro del ancho y alto total */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define una tipografía moderna y legible */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* CUERPO PRINCIPAL DEL SITIO (BODY)
-Define el estilo base de toda la página web.
-Aquí se configura el fondo general, el color
-del texto y parámetros de lectura.*/
+/* BODY: Configuración de fondo, tipografía y legibilidad */
 body {
-    background: linear-gradient(
-        135deg, #fff3e08e 0%, #ffe0b249 100%); /* Fondo con degradado suave para una apariencia visual agradable */
-    color: #333; /* Color de texto oscuro para mejorar la legibilidad */
-    line-height: 1.6; /* Incrementa el espacio entre líneas para facilitar la lectura */
-    overflow-x: hidden; /* Evita que aparezca desplazamiento horizontal */
+    background: linear-gradient(135deg, #fff3e08e 0%, #ffe0b249 100%);
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
-/* ENCABEZADO PRINCIPAL (HEADER)
-Contiene el título o información principal
-del sitio. Se le aplica un fondo degradado,
-centrado de texto y efectos visuales.*/
+/* HEADER: Estilo del encabezado con degradado y sombreado */
 header {
-    background: linear-gradient(
-        135deg, #F57C00 0%, #E65100 100%); /* Fondo degradado en tonos naranja para destacar el encabezado */
-    text-align: center; /* Centra horizontalmente el contenido del encabezado */
-    padding: 35px 0 25px; /* Espaciado interno superior e inferior para dar amplitud */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave para dar efecto de profundidad */
-    position: relative; /* Permite posicionar elementos internos de forma absoluta */
-    overflow: hidden; /* Oculta cualquier contenido que sobresalga del header */
+    background: linear-gradient(135deg, #F57C00 0%, #E65100 100%);
+    text-align: center;
+    padding: 35px 0 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
 }
 
-/* ELEMENTO DECORATIVO DEL HEADER
-Se utiliza un pseudoelemento para crear
-una línea superior animada que aporta
-dinamismo visual al encabezado.*/
+/* DECORACIÓN: Línea superior animada en el header */
 header::before {
-    content: ''; /* Crea el pseudoelemento necesario para aplicar el efecto */
-    position: absolute; /* Permite ubicarlo libremente dentro del header */
-    top: 0; /* Posiciona el elemento en la parte superior */
-    left: 0; /* Inicia desde el lado izquierdo */
-    right: 0; /* Se extiende hasta el lado derecho */
-    height: 4px; /* Define el grosor de la línea decorativa */
-    background: linear-gradient(
-        90deg, #FFB74D, #FF9800, #FFB74D); /* Degradado horizontal para un efecto visual atractivo */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #FFB74D, #FF9800, #FFB74D);
 }
-
-
-/* TÍTULO PRINCIPAL DEL HEADER (H1)
-Define el estilo del texto principal que se
-muestra en el encabezado del sitio.*/
+/* HEADER H1: Título principal destacado en mayúsculas y con sombra */
 header h1 {
-    color: white; /* Color blanco para contrastar con el fondo oscuro */
-    font-size: 48px; /* Tamaño grande para destacar el título */
-    font-weight: 800; /* Grosor alto para dar mayor presencia visual */
-    text-transform: uppercase; /* Convierte el texto a mayúsculas */
-    letter-spacing: 1.2px; /* Aumenta el espacio entre letras para mejorar la lectura */
-    text-shadow: 0px 3px 8px rgba(0,0,0,0.35); /* Sombra para dar profundidad al texto */
-    margin: 0; /* Elimina márgenes externos innecesarios */
-    position: relative; /* Permite aplicar efectos o animaciones correctamente */
+    color: white;
+    font-size: 48px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    text-shadow: 0px 3px 8px rgba(0,0,0,0.35);
+    margin: 0;
+    position: relative;
 }
 
-/* MENÚ DE NAVEGACIÓN (NAV)
-Define la barra de navegación principal del
-sitio, su color, posición y comportamiento.*/
+/* NAV: Barra de navegación fija (sticky) con sombra */
 nav {
-    background: #EF6C00; /* Color de fondo naranja para destacar el menú */
-    text-align: center; /* Centra horizontalmente los enlaces */
-    padding: 14px 0; /* Espaciado vertical para comodidad visual */
-    position: sticky; /* Mantiene el menú visible al hacer scroll */
-    top: 0; /* Fija el menú en la parte superior */
-    z-index: 1000; /* Asegura que el menú esté por encima de otros elementos */
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil para separar del contenido */
-    transition: all 0.3s ease; /* Suaviza los cambios visuales */
+    background: #EF6C00;
+    text-align: center;
+    padding: 14px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
-
-
-/* ENLACES DEL MENÚ DE NAVEGACIÓN
-Define el estilo de los enlaces que permiten
-desplazarse por las secciones del sitio.*/
+/* NAV A: Estilo de los enlaces del menú con efectos de transición */
 nav a {
-    color: white; /* Color blanco para buena visibilidad */
-    text-decoration: none; /* Elimina el subrayado por defecto */
-    margin: 0 22px; /* Espacio horizontal entre enlaces */
-    font-size: 18px; /* Tamaño de letra legible */
-    font-weight: 600; /* Grosor medio-alto para destacar */
-    letter-spacing: 0.6px; /* Espaciado ligero entre letras */
-    transition: all 0.3s ease; /* Suaviza efectos al interactuar */
-    position: relative; /* Permite agregar efectos decorativos */
-    padding: 5px 0; /* Área de interacción más cómoda */
+    color: white;
+    text-decoration: none;
+    margin: 0 22px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 5px 0;
 }
 
-
-
-
-
-/* CONTENIDO PRINCIPAL DEL SITIO (MAIN)
-Define el ancho máximo del contenido
-y su alineación dentro de la página.*/
+/* MAIN: Contenedor principal centrado con ancho máximo */
 main {
-    max-width: 1200px; /* Limita el ancho para mejorar la lectura */
-    margin: 40px auto; /* Centra el contenido y agrega separación vertical */
-    padding: 0 20px; /* Espaciado interno lateral para evitar bordes pegados */
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
-
-
-/* TÍTULOS CON EFECTO ESPECIAL
-Define el estilo visual de los títulos
-secundarios del sitio.*/
+/* H2, H3: Títulos secundarios en color naranja */
 h2, h3 {
-    color: #F57C00; /* Color naranja para destacar los títulos */
-    margin-bottom: 20px; /* Espaciado inferior para separar del contenido */
-    position: relative; /* Permite aplicar efectos decorativos */
-    display: inline-block; /* Ajusta el ancho al contenido del texto */
+    color: #F57C00;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
 }
-
-
-/* SECCIONES CON FONDO ALTERNADO
-Aplica diferentes fondos según la posición
-de la sección para mejorar la separación visual.*/
+/* SECCIONES PARES: Fondo más intenso y bordes redondeados */
 section:nth-child(even) {
-    background: rgba(255, 224, 178, 0.897); /* Fondo más intenso para secciones pares */
-    border-radius: 15px; /* Bordes redondeados */
-    padding: 30px; /* Espaciado interno para comodidad visual */
-    margin: 30px 0; /* Separación vertical entre secciones */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Sombra suave */
+    background: rgba(255, 224, 178, 0.897);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 30px 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* SECCIONES IMPARES DEL CONTENIDO
-Mantiene coherencia visual con un tono
-ligeramente distinto.*/
+/* SECCIONES IMPARES: Fondo más claro para contraste visual */
 section:nth-child(odd) {
-    background: rgba(255, 243, 224, 0.7); /* Fondo más claro para secciones impares */
-    border-radius: 15px; /* Bordes redondeados */
-    padding: 30px; /* Espaciado interno */
-    margin: 30px 0; /* Separación vertical */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Sombra suave */
+    background: rgba(255, 243, 224, 0.7);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 30px 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* BOTONES MEJORADOS DEL SITIO
-Define el estilo visual de los botones
-para hacerlos más atractivos e interactivos.*/
+/* BOTONES: Estilo tipo píldora con degradado y sombra naranja */
 .boton, a.boton, main a.boton, button[type="submit"] {
-    background: linear-gradient(135deg, #F57C00 0%, #EF6C00 100%); /* Fondo degradado */
-    color: white; /* Texto en color blanco */
-    padding: 14px 28px; /* Espaciado interno para mejor interacción */
-    border-radius: 50px; /* Forma redondeada tipo píldora */
-    display: inline-block; /* Permite aplicar dimensiones */
-    font-weight: 600; /* Grosor del texto */
-    text-decoration: none; /* Elimina subrayado en enlaces */
-    margin-top: 10px; /* Separación superior */
-    transition: all 0.3s ease; /* Transiciones suaves */
-    border: none; /* Elimina borde por defecto */
-    cursor: pointer; /* Cambia el cursor al pasar */
-    position: relative; /* Permite efectos internos */
-    overflow: hidden; /* Oculta efectos que sobresalgan */
-    box-shadow: 0 4px 15px rgba(239, 108, 0, 0.3); /* Sombra para efecto de profundidad */
+    background: linear-gradient(135deg, #F57C00 0%, #EF6C00 100%);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 50px;
+    display: inline-block;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(239, 108, 0, 0.3);
 }
 
-/* FORMULARIOS DEL SITIO
-Define el diseño visual de los formularios
-para que se vean limpios y destacados.*/
+/* FORMULARIOS: Contenedor blanco con sombra y bordes curvos */
 form {
-    background: white; /* Fondo blanco para contraste */
-    padding: 30px; /* Espaciado interno amplio */
-    border-radius: 15px; /* Bordes redondeados */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    transition: all 0.3s ease; /* Transiciones suaves */
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
-
-
-
-/* CAMPOS DE ENTRADA DEL FORMULARIO
-Define el estilo de los inputs y áreas
-de texto para una mejor experiencia.*/
+/* INPUTS: Campos de texto al 100% de ancho con bordes redondeados */
 input, textarea {
-    width: 100%; /* Ocupa todo el ancho disponible */
-    padding: 12px; /* Espaciado interno cómodo */
-    margin: 8px 0; /* Separación entre campos */
-    border: 2px solid #e0e0e0; /* Borde gris claro */
-    border-radius: 8px; /* Bordes redondeados */
-    transition: all 0.3s ease; /* Transiciones suaves */
-    font-size: 16px; /* Tamaño de texto legible */
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 16px;
 }
 
-
-
-/* IMÁGENES RESPONSIVAS CON EFECTO
-Asegura que las imágenes se adapten
-al contenedor y tengan interacción.*/
+/* IMÁGENES: Responsivas con bordes redondeados y filtro suave */
 img {
-    max-width: 100%; /* Evita que la imagen exceda su contenedor */
-    border-radius: 10px; /* Bordes suavemente redondeados */
-    transition: all 0.5s ease; /* Transiciones suaves */
-    filter: brightness(0.95); /* Reduce ligeramente el brillo */
+    max-width: 100%;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+    filter: brightness(0.95);
 }
 
-/* PIE DE PÁGINA (FOOTER)
-Define el estilo final del sitio con
-colores consistentes y centrado.*/
+/* FOOTER: Fondo degradado naranja y texto centrado */
 footer {
-    background: linear-gradient(135deg, #EF6C00 0%, #E65100 100%); /* Fondo degradado */
-    color: white; /* Texto en color blanco */
-    text-align: center; /* Centra el contenido */
-    padding: 30px 0; /* Espaciado vertical */
-    margin-top: 60px; /* Separación del contenido principal */
-    font-size: 15px; /* Tamaño de texto adecuado */
-    position: relative; /* Permite efectos decorativos */
-    overflow: hidden; /* Oculta elementos que sobresalgan */
+    background: linear-gradient(135deg, #EF6C00 0%, #E65100 100%);
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 60px;
+    font-size: 15px;
+    position: relative;
+    overflow: hidden;
 }
 
-/* LÍNEA DECORATIVA SUPERIOR DEL FOOTER
-Se utiliza un pseudoelemento para agregar
-un detalle visual en la parte superior
-del pie de página.*/
+/* DECORACIÓN FOOTER: Línea superior con degradado horizontal */
 footer::before {
-    content: ''; /* Crea el pseudoelemento decorativo */
-    position: absolute; /* Permite posicionar la línea dentro del footer */
-    top: 0; /* Ubica la línea en la parte superior */
-    left: 0; /* Inicia desde el lado izquierdo */
-    right: 0; /* Se extiende hasta el lado derecho */
-    height: 3px; /* Grosor de la línea */
-    background: linear-gradient(90deg, #FFB74D, #FF9800, #FFB74D); /* Degradado decorativo */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #FFB74D, #FF9800, #FFB74D);
 }
-
-/* BOTÓN PARA SUBIR AL INICIO
-Permite al usuario volver rápidamente
-a la parte superior de la página.*/
+/* BTN SUBIR: Botón circular fijo en la esquina inferior derecha */
 #btnSubir {
-    position: fixed; /* Mantiene el botón fijo en la pantalla */
-    bottom: 30px; /* Separación desde la parte inferior */
-    right: 30px; /* Separación desde el lado derecho */
-    background: linear-gradient(135deg, #F57C00 0%, #EF6C00 100%); /* Fondo degradado */
-    color: white; /* Color del ícono o texto */
-    border: none; /* Elimina el borde por defecto */
-    padding: 15px; /* Espaciado interno */
-    border-radius: 50%; /* Forma circular */
-    font-size: 20px; /* Tamaño del ícono */
-    cursor: pointer; /* Cursor interactivo */
-    display: none; /* Se oculta inicialmente */
-    transition: all 0.3s ease; /* Transiciones suaves */
-    z-index: 1000; /* Se mantiene por encima de otros elementos */
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
-    width: 60px; /* Ancho del botón */
-    height: 60px; /* Alto del botón */
-    display: flex; /* Permite centrar el contenido */
-    align-items: center; /* Centra verticalmente */
-    justify-content: center; /* Centra horizontalmente */
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, #F57C00 0%, #EF6C00 100%);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* IMAGEN PERSONAL
-Define el tamaño y alineación de una
-imagen personal dentro del contenido.*/
+/* FOTO PERSONAL: Imagen pequeña centrada horizontalmente */
 .foto-personal {
-    width: 100px; /* Ancho fijo de la imagen */
-    height: auto; /* Mantiene la proporción original */
-    display: block; /* Permite aplicar márgenes automáticos */
-    margin: 0 auto; /* Centra la imagen horizontalmente */
+    width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
-/* BOTÓN PARA MOSTRAR INFORMACIÓN ADICIONAL
-Define el estilo visual del botón que
-permite desplegar contenido extra.*/
+/* BOTÓN INFO: Estilo tipo píldora con degradado y sombra */
 #mostrar-info {
-    background: linear-gradient(135deg, #F57C00 0%, #EF6C00 100%); /* Fondo degradado */
-    color: white; /* Texto en color blanco */
-    padding: 12px 25px; /* Espaciado interno */
-    font-size: 1.1em; /* Tamaño de texto ligeramente mayor */
-    font-weight: 600; /* Grosor del texto */
-    border: none; /* Elimina borde por defecto */
-    border-radius: 50px; /* Forma redondeada tipo píldora */
-    cursor: pointer; /* Cursor interactivo */
-    transition: all 0.3s ease; /* Transiciones suaves */
-    box-shadow: 0 4px 15px rgba(239, 108, 0, 0.3); /* Sombra suave */
-    display: inline-block; /* Permite controlar dimensiones */
-    margin-top: 15px; /* Separación superior */
-    text-align: center; /* Centra el texto */
-    position: relative; /* Permite efectos internos */
-    overflow: hidden; /* Oculta efectos que sobresalgan */
+    background: linear-gradient(135deg, #F57C00 0%, #EF6C00 100%);
+    color: white;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(239, 108, 0, 0.3);
+    display: inline-block;
+    margin-top: 15px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
-/* EFECTO DE BRILLO DEL BOTÓN
-Crea un efecto de luz que se desplaza
-sobre el botón al interactuar.*/
+/* EFECTO BRILLO: Reflejo que se desplaza sobre el botón */
 #mostrar-info::before {
-    content: ''; /* Crea el pseudoelemento para el efecto */
-    position: absolute; /* Posiciona el efecto dentro del botón */
-    top: 0; /* Inicia desde la parte superior */
-    left: -100%; /* Comienza fuera del botón */
-    width: 100%; /* Ocupa todo el ancho */
-    height: 100%; /* Ocupa todo el alto */
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent); /* Degradado tipo brillo */
-    transition: left 0.5s ease; /* Animación del desplazamiento */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
 }
 
-/* ACTIVACIÓN DEL EFECTO DE BRILLO
-Al pasar el cursor, el brillo recorre
-todo el botón.*/
+/* HOVER BRILLO: Desplaza el reflejo de izquierda a derecha */
 #mostrar-info:hover::before {
-    left: 100%; /* Desplaza el brillo hacia la derecha */
+    left: 100%;
 }
 
-/* EFECTO VISUAL DEL BOTÓN AL PASAR EL CURSOR
-Eleva el botón y refuerza su presencia.*/
+/* HOVER BOTÓN: Eleva el botón, aumenta la sombra e invierte el degradado */
 #mostrar-info:hover {
-    transform: translateY(-3px); /* Eleva ligeramente el botón */
-    box-shadow: 0 8px 25px rgba(239, 108, 0, 0.4); /* Aumenta la sombra */
-    background: linear-gradient(135deg, #EF6C00 0%, #F57C00 100%); /* Invierte el degradado */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(239, 108, 0, 0.4);
+    background: linear-gradient(135deg, #EF6C00 0%, #F57C00 100%);
 }

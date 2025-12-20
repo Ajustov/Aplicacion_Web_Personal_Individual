@@ -1,16 +1,16 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    // Referencias a elementos del juego
+    // REFERENCIAS: Elementos de la interfaz del juego
     const numeroInput = document.getElementById('numero');
     const adivinarBtn = document.getElementById('adivinar');
     const reiniciarBtn = document.getElementById('reiniciar');
     const mensaje = document.getElementById('mensaje');
 
-    // Variables del juego
+    // ESTADO: Variables de control y lógica del número aleatorio
     let numeroSecreto = Math.floor(Math.random() * 100) + 1;
     let intentos = 0;
 
-    // Reinicia el estado del juego
+    // REINICIAR: Restablece el número secreto y limpia la interfaz
     function reiniciarJuego() {
         numeroSecreto = Math.floor(Math.random() * 100) + 1;
         intentos = 0;
@@ -18,18 +18,18 @@ document.addEventListener("DOMContentLoaded", function() {
         mensaje.textContent = 'Juego reiniciado. ¡Adivina el número!';
     }
 
-    // Evento para adivinar el número
+    // LÓGICA: Procesamiento del intento del usuario
     adivinarBtn.addEventListener('click', function() {
         const intento = Number(numeroInput.value);
         intentos++;
 
-        // Validación del número ingresado
+        // Validación: Asegura que el número esté en el rango correcto
         if (!intento || intento < 1 || intento > 100) {
             mensaje.textContent = 'Por favor, ingresa un número entre 1 y 100.';
             return;
         }
 
-        // Comparación con el número secreto
+        // Comparación: Verifica si el usuario acertó o necesita pistas
         if (intento === numeroSecreto) {
             mensaje.textContent = `¡Felicidades! Adivinaste el número ${numeroSecreto} en ${intentos} intentos.`;
         } else if (intento < numeroSecreto) {
@@ -38,13 +38,14 @@ document.addEventListener("DOMContentLoaded", function() {
             mensaje.textContent = 'El número es menor. Intenta otra vez.';
         }
 
+        // Limpieza: Prepara el input para el siguiente intento
         numeroInput.value = '';
         numeroInput.focus();
     });
 
-    // Botón para reiniciar el juego
+    // EVENTO: Asigna la función de reinicio al botón correspondiente
     reiniciarBtn.addEventListener('click', reiniciarJuego);
 
-    // Mensaje inicial
+    // INICIO: Configuración del mensaje de bienvenida
     mensaje.textContent = 'Estoy pensando en un número entre 1 y 100. ¡Intenta adivinarlo!';
 });

@@ -1,38 +1,36 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    // REFERENCIAS A ELEMENTOS DEL FORMULARIO
+    // REFERENCIAS: Elementos principales del DOM
     const form = document.getElementById("formContacto");
     const fechaNacimiento = document.getElementById("fecha-nacimiento");
     const edadTexto = document.getElementById("edad");
     const botonInfo = document.getElementById("mostrar-info");
     const infoExtra = document.getElementById("informacion-adicional");
 
-    // MANEJO DEL ENVÍO DEL FORMULARIO
+    // FORMULARIO: Validación y simulación de envío
     if (form) {
         form.addEventListener("submit", function(e) {
-            e.preventDefault(); // Evita que la página se recargue
+            e.preventDefault(); // Evita recarga de página
 
-            // Obtener valores ingresados
+            // Obtención y limpieza de valores
             let nombre = document.getElementById("nombre").value.trim();
             let email = document.getElementById("email").value.trim();
-            let asunto = document.getElementById("asunto")
-                ? document.getElementById("asunto").value.trim()
-                : "";
+            let asunto = document.getElementById("asunto") ? document.getElementById("asunto").value.trim() : "";
             let mensaje = document.getElementById("mensaje").value.trim();
 
-            // Validación básica de campos obligatorios
+            // Validación de campos obligatorios
             if (!nombre || !email || !mensaje || (document.getElementById("asunto") && !asunto)) {
                 alert("Por favor, completa todos los campos antes de enviar.");
                 return;
             }
 
-            // Estado visual de envío
+            // Estado visual: Botón en modo carga
             const submitBtn = form.querySelector('button[type="submit"]');
             submitBtn.textContent = "Enviando...";
             submitBtn.classList.add("loading");
             submitBtn.disabled = true;
 
-            // Simulación de envío del formulario
+            // Simulación de proceso de envío
             setTimeout(() => {
                 alert("¡Mensaje enviado correctamente!");
                 form.reset();
@@ -44,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // CÁLCULO AUTOMÁTICO DE LA EDAD
+    // EDAD: Cálculo automático basado en fecha de nacimiento
     if (fechaNacimiento && edadTexto) {
         fechaNacimiento.addEventListener("change", function() {
             const fecha = new Date(fechaNacimiento.value);
@@ -57,7 +55,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (mes < 0 || (mes === 0 && hoy.getDate() < fecha.getDate())) {
                     edad--;
                 }
-
                 edadTexto.textContent = "Edad: " + edad + " años";
             } else {
                 edadTexto.textContent = "";
@@ -65,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // MOSTRAR U OCULTAR INFORMACIÓN ADICIONAL
+    // INFO EXTRA: Alternar visibilidad de datos adicionales
     if (botonInfo && infoExtra) {
         botonInfo.addEventListener("click", () => {
             if (infoExtra.style.display === "none" || infoExtra.style.display === "") {
@@ -78,34 +75,29 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // RESALTAR ENLACE ACTIVO DEL MENÚ
+    // NAVEGACIÓN: Enlace activo y transiciones de página
     const enlaces = document.querySelectorAll("nav a");
     const paginaActual = window.location.pathname.split("/").pop() || "index.html";
-    // MARCAR ENLACE ACTIVO EN EL MENÚ
+
     enlaces.forEach(a => {
         if (a.getAttribute("href") === paginaActual) {
-            a.classList.add("activo"); // Resalta la página actual
+            a.classList.add("activo");
         }
 
-        // Transición suave al cambiar de página
         a.addEventListener("click", function() {
             if (!this.classList.contains("activo")) {
                 document.body.style.opacity = "0.8";
                 document.body.style.transition = "opacity 0.3s ease";
-                setTimeout(() => {
-                    document.body.style.opacity = "1";
-                }, 300);
+                setTimeout(() => document.body.style.opacity = "1", 300);
             }
         });
     });
 
-    // EFECTOS DEL MENÚ Y BOTÓN SUBIR AL HACER SCROLL
+    // SCROLL: Comportamiento del menú y botón de subir
     const nav = document.querySelector("nav");
     const btn = document.getElementById("btnSubir");
 
     window.addEventListener("scroll", () => {
-
-        // Cambia el estilo del menú al desplazarse
         if (nav) {
             if (window.scrollY > 100) {
                 nav.classList.add("scrolled");
@@ -114,7 +106,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
 
-        // Muestra u oculta el botón para subir
         if (btn) {
             if (window.scrollY > 300) {
                 btn.style.display = "flex";
@@ -125,31 +116,24 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // FUNCIONALIDAD DEL BOTÓN SUBIR
+    // BTN SUBIR: Animación de rotación y scroll suave
     if (btn) {
         btn.addEventListener("click", () => {
             btn.style.transform = "rotate(360deg)";
             btn.style.transition = "transform 0.5s ease";
             window.scrollTo({ top: 0, behavior: "smooth" });
-
-            setTimeout(() => {
-                btn.style.transform = "rotate(0deg)";
-            }, 500);
+            setTimeout(() => btn.style.transform = "rotate(0deg)", 500);
         });
     }
 
-    // ANIMACIÓN DE ELEMENTOS AL APARECER EN PANTALLA
+    // ANIMACIONES: Activación de elementos al hacer scroll
     function animateOnScroll() {
         const elements = document.querySelectorAll('.fade-in, .imagen, section, article');
 
         elements.forEach((element, index) => {
             const elementTop = element.getBoundingClientRect().top;
-            const elementVisible = 150;
-
-            if (elementTop < window.innerHeight - elementVisible) {
+            if (elementTop < window.innerHeight - 150) {
                 element.classList.add('visible');
-
-                // Retraso progresivo para imágenes
                 if (element.classList.contains('imagen')) {
                     element.style.transitionDelay = `${index * 0.1}s`;
                 }
@@ -158,25 +142,20 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     window.addEventListener("scroll", animateOnScroll);
-    animateOnScroll(); // Ejecuta la animación al cargar la página
+    animateOnScroll();
 
-    // EFECTO HOVER BASADO EN LA POSICIÓN DEL MOUSE
+    // MOUSE TRACKING: Coordenadas para efectos visuales
     const cards = document.querySelectorAll('.imagen, article');
     cards.forEach(card => {
         card.addEventListener('mouseenter', (e) => {
             const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            card.style.setProperty('--mouse-x', `${x}px`);
-            card.style.setProperty('--mouse-y', `${y}px`);
+            card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+            card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
         });
     });
 
-    // EFECTO DE APARICIÓN INICIAL DE LA PÁGINA
+    // PÁGINA: Efecto de fundido inicial
     document.body.style.opacity = '0';
     document.body.style.transition = 'opacity 0.5s ease-in';
-    setTimeout(() => {
-        document.body.style.opacity = '1';
-    }, 100);
+    setTimeout(() => document.body.style.opacity = '1', 100);
 });

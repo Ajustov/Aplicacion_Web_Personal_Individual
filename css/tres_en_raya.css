@@ -1,102 +1,111 @@
-/* CONTENEDOR PRINCIPAL DEL JUEGO TRES EN RAYA
-Se utiliza flexbox para centrar todo el
-contenido del juego de forma vertical
-y horizontal dentro de la página. */
+/* TRES EN RAYA: Contenedor centrado con Flexbox */
 #tresEnRaya {
-    display: flex; /* Activa flexbox para el contenedor */
-    flex-direction: column; /* Coloca los elementos en columna */
-    align-items: center; /* Centra los elementos horizontalmente */
-    margin-top: 50px; /* Separación superior respecto al contenido anterior */
-    font-family: Arial, sans-serif; /* Tipografía simple y legible para el juego */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    font-family: Arial, sans-serif;
 }
 
-/* TÍTULO DEL JUEGO
-Define el estilo visual del encabezado
-del juego y anula animaciones o efectos
-heredados del estilo general del sitio. */
+
+/* TÍTULO JUEGO: Estilo limpio y eliminación de efectos heredados */
 #tresEnRaya h2 {
-    margin-bottom: 20px; /* Espacio inferior entre el título y el tablero */
-    color: #000000b7; /* Color oscuro con ligera transparencia */
-    font-size: 28px; /* Tamaño del texto del título */
-    font-weight: 700; /* Grosor del texto para mayor énfasis */
-    text-align: center; /* Centra el texto horizontalmente */
-
-    /* Eliminación de animaciones heredadas */
-    animation: none !important; /* Desactiva animaciones previas */
+    margin-bottom: 20px;
+    color: #000000b7;
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    animation: none !important;
 }
 
-/* ELIMINACIÓN DEL SUBRAYADO DECORATIVO
-Evita que se aplique el pseudo-elemento
-utilizado en otros títulos del sitio. */
+
+/* DECORACIÓN: Desactiva el subrayado de otros h2 del sitio */
 #tresEnRaya h2::after {
-    content: none !important; /* Desactiva el subrayado decorativo */
+    content: none !important;
 }
 
-/* TABLERO DEL JUEGO
-Se construye una cuadrícula 3x3 usando
-CSS Grid para organizar las casillas
-de manera uniforme. */
+
+/* TABLERO: Cuadrícula de 3x3 con celdas de 120px */
 #tablero {
-    display: grid; /* Activa el sistema de cuadrícula */
-    grid-template-columns: repeat(3, 120px); /* Define 3 columnas iguales */
-    grid-template-rows: repeat(3, 120px); /* Define 3 filas iguales */
-    gap: 10px; /* Espacio entre cada casilla del tablero */
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    grid-template-rows: repeat(3, 120px);
+    gap: 10px;
 }
-/* CASILLAS DEL TABLERO
-Define el estilo visual de cada celda
-del juego tres en raya, centrando el
-contenido y aplicando efectos suaves. */
+
+
+/* CASILLA: Celdas interactivas con símbolos grandes y centrados */
 .casilla {
-    display: flex; /* Permite centrar el contenido */
-    justify-content: center; /* Centra horizontalmente el símbolo */
-    align-items: center; /* Centra verticalmente el símbolo */
-    font-size: 3em; /* Tamaño grande para X y O */
-    background-color: #f0f0f0; /* Color de fondo claro */
-    border-radius: 15px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sombra para efecto de profundidad */
-    cursor: pointer; /* Indica que la casilla es interactiva */
-    transition: transform 0.2s, background-color 0.2s; /* Transiciones suaves */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
 }
 
-/* EFECTO VISUAL AL PASAR EL CURSOR
-Resalta la casilla para indicar que
-puede ser seleccionada por el usuario. */
+
+/* HOVER CASILLA: Resalta la celda */
 .casilla:hover {
-    background-color: #d1e7ff; /* Cambia el color de fondo */
-    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+    background-color: #d1e7ff;
+    transform: scale(1.05);
 }
 
-/* BOTÓN DE REINICIO DEL JUEGO
-Permite reiniciar la partida y volver
-al estado inicial del tablero. */
-#reiniciar {
-    margin-top: 20px; /* Separación superior respecto al tablero */
-    padding: 10px 25px; /* Espaciado interno del botón */
-    font-size: 1.1em; /* Tamaño del texto del botón */
-    background-color: #4CAF50; /* Color verde para acción positiva */
-    color: white; /* Texto en color blanco */
-    border: none; /* Elimina el borde por defecto */
-    border-radius: 10px; /* Bordes redondeados */
-    cursor: pointer; /* Indica que el botón es interactivo */
-    transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
+
+/* CASILLA OCUPADA: Evita interacción */
+.casilla.ocupada {
+    cursor: default;
+    background-color: #e0e0e0;
 }
 
-/* EFECTO HOVER DEL BOTÓN REINICIAR
-Proporciona retroalimentación visual
-cuando el usuario interactúa con el botón. */
-#reiniciar:hover {
-    background-color: #45a049; /* Tono más oscuro al pasar el mouse */
-    transform: scale(1.05); /* Ligero aumento de tamaño */
+
+/* CASILLA GANADORA: Resalta la combinación ganadora */
+.casilla.ganadora {
+    background-color: #c8f7c5;
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.8);
 }
 
-/* MENSAJE DE ESTADO DEL JUEGO
-Muestra el turno actual o el resultado
-de la partida al usuario. */
+
+/* MENSAJE: Texto de estado del turno o resultado */
 #tresEnRaya #mensaje {
-    font-size: 20px; /* Tamaño del texto del mensaje */
-    font-weight: 600; /* Grosor del texto para mayor claridad */
-    text-align: center; /* Centra el texto horizontalmente */
-    margin: 15px 0; /* Espaciado vertical */
-    color: #333; /* Color oscuro para buena legibilidad */
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    margin: 15px 0;
+    color: #333;
 }
 
+
+/* MENSAJE GANADOR */
+#mensaje.ganador {
+    color: #2e7d32;
+}
+
+
+/* MENSAJE EMPATE */
+#mensaje.empate {
+    color: #f57c00;
+}
+
+
+/* REINICIAR: Botón verde con bordes curvos */
+#reiniciar {
+    margin-top: 20px;
+    padding: 10px 25px;
+    font-size: 1.1em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* HOVER REINICIAR: Casilla de reiniciar*/
+#reiniciar:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
