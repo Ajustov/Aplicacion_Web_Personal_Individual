@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto</title>
 
-    <!-- ESTILOS -->
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/animaciones.css">
 
-    <!-- SCRIPT -->
     <script src="js/scripts.js" defer></script>
 </head>
 <body>
@@ -41,14 +39,24 @@
         <section class="fade-in">
             <h2>Envíame un mensaje</h2>
 
-            <!-- FORMULARIO CONECTADO AL JS -->
             <form id="formContacto">
                 <input type="text" id="nombre" placeholder="Nombre completo" required>
                 <input type="email" id="email" placeholder="Correo electrónico" required>
+
+                <input type="text" id="asunto" placeholder="Asunto (opcional)">
+
+                <input type="date" id="fecha-nacimiento" placeholder="Fecha de nacimiento">
+                <span id="edad" style="display:block; margin-bottom:10px; font-weight:500;"></span>
+
                 <textarea id="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
 
                 <button type="submit">Enviar mensaje</button>
             </form>
+
+            <button type="button" id="mostrar-info">Mostrar información adicional</button>
+            <div id="informacion-adicional" style="display:none; margin-top:15px;">
+                <p>Aquí puedes agregar más información de contacto o detalles relevantes.</p>
+            </div>
         </section>
 
         <section class="fade-in">
@@ -67,7 +75,6 @@
         <p>© 2025 - Página personal</p>
     </footer>
 
-    <!-- BOTÓN SUBIR -->
     <button id="btnSubir">↑</button>
 
 </body>
