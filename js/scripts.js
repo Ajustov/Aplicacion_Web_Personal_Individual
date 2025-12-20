@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // FORMULARIO: Validación y simulación de envío
     if (form) {
         form.addEventListener("submit", function(e) {
-            e.preventDefault(); // Evita recarga de página
+            //e.preventDefault(); // Evita recarga de página
 
             // Obtención y limpieza de valores
             let nombre = document.getElementById("nombre").value.trim();
