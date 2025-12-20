@@ -1,0 +1,69 @@
+/* SECCIÓN DE LISTA DE JUEGOS
+Contiene y organiza visualmente el
+listado de juegos disponibles, centrando
+todo el contenido en la página. */
+#juegos {
+    display: flex; /* Usa flexbox para organizar el contenido */
+    flex-direction: column; /* Coloca los elementos en columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+    margin: 50px 20px; /* Espaciado exterior superior e inferior */
+    font-family: Arial, sans-serif; /* Tipografía simple y legible */
+}
+
+/* TÍTULO DE LA SECCIÓN DE JUEGOS
+Define el estilo visual del encabezado
+que introduce el listado de juegos. */
+#juegos h2 {
+    font-size: 32px; /* Tamaño grande para destacar el título */
+    color: #F57C00; /* Color naranja acorde al estilo del sitio */
+    margin-bottom: 30px; /* Separación inferior del listado */
+    text-align: center; /* Centra el texto horizontalmente */
+}
+
+/* LISTA DE JUEGOS
+Organiza los juegos de forma flexible,
+permitiendo que se acomoden según
+el tamaño de la pantalla. */
+.lista-juegos {
+    list-style: none; /* Elimina los puntos de la lista */
+    display: flex; /* Usa flexbox para alinear los elementos */
+    flex-wrap: wrap; /* Permite que los elementos pasen a otra fila */
+    justify-content: center; /* Centra los juegos horizontalmente */
+    gap: 20px; /* Espacio entre cada elemento */
+    padding: 0; /* Elimina el padding por defecto */
+}
+
+/* ELEMENTOS INDIVIDUALES DE LA LISTA
+Define el comportamiento básico de cada
+ítem dentro del listado de juegos. */
+.lista-juegos li {
+    margin: 0; /* Elimina márgenes innecesarios */
+}
+
+/* ENLACES DE LOS JUEGOS
+Estiliza cada juego como una tarjeta
+clicable con fondo degradado y efectos
+visuales atractivos. */
+.lista-juegos a {
+    display: block; /* Permite aplicar padding y dimensiones */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    background: linear-gradient(135deg, #F57C00 0%, #EF6C00 100%); /* Fondo degradado */
+    color: white; /* Texto en color blanco */
+    padding: 20px 40px; /* Espaciado interno amplio */
+    border-radius: 15px; /* Bordes redondeados */
+    font-size: 20px; /* Tamaño del texto */
+    font-weight: 600; /* Grosor del texto */
+    text-align: center; /* Centra el texto */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2); /* Sombra inicial */
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s; /* Transiciones suaves */
+}
+
+/* EFECTO HOVER DE LOS JUEGOS
+Proporciona una animación visual que
+refuerza la interactividad al pasar
+el cursor sobre cada juego. */
+.lista-juegos a:hover {
+    transform: translateY(-5px); /* Eleva ligeramente la tarjeta */
+    box-shadow: 0 12px 25px rgba(0,0,0,0.3); /* Intensifica la sombra */
+    background: linear-gradient(135deg, #EF6C00 0%, #F57C00 100%); /* Invierte el degradado */
+}

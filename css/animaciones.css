@@ -1,63 +1,309 @@
-/* Animaciones de entrada */
+/* ELEMENTO DECORATIVO DEL HEADER
+Aplica una animación continua de brillo sobre la
+línea superior del encabezado para darle dinamismo visual */
+header::before {
+    animation: headerGlow 3s infinite linear; /* Ejecuta el efecto de brillo de forma infinita */
+}
+
+/* ANIMACIÓN DEL EFECTO DE BRILLO DEL HEADER
+Define una animación que desplaza el degradado
+horizontalmente para generar un efecto visual
+dinámico en la línea decorativa del encabezado */
+@keyframes headerGlow {
+    0% {
+        background-position: 0% 50%; /* Inicio del degradado desde la izquierda */
+    }
+    100% {
+        background-position: 200% 50%; /* Desplaza el degradado hacia la derecha */
+    }
+}
+
+/* ANIMACIÓN DE ENTRADA DEL TÍTULO PRINCIPAL
+Hace que el texto aparezca suavemente desde
+arriba al cargar la página */
+header h1 {
+    animation: fadeInDown 1s ease-out; /* Aplica una animación de entrada fluida */
+}
+
+/* ESTADO DEL MENÚ AL HACER SCROLL
+Se aplica cuando el usuario se desplaza
+por la página para mejorar la experiencia visual.*/
+nav.scrolled {
+    padding: 10px 0; /* Reduce el tamaño del menú al hacer scroll */
+    background: rgba(239, 108, 0, 0.95); /* Fondo ligeramente transparente */
+    backdrop-filter: blur(10px); /* Aplica un efecto de desenfoque al fondo */
+}
+/* EFECTO DECORATIVO EN LOS ENLACES DEL MENÚ
+Se utiliza un pseudoelemento para crear
+una línea inferior animada al interactuar
+con los enlaces de navegación.*/
+nav a::after {
+    content: ''; /* Crea el pseudoelemento necesario para el efecto */
+    position: absolute; /* Permite posicionar la línea respecto al enlace */
+    bottom: 0; /* Ubica la línea en la parte inferior del texto */
+    left: 0; /* Inicia desde el lado izquierdo */
+    width: 0; /* Comienza invisible */
+    height: 2px; /* Grosor de la línea decorativa */
+    background: #FFB74D; /* Color naranja claro para el efecto */
+    transition: width 0.3s ease; /* Animación suave al expandirse */
+}
+/* EFECTO AL PASAR EL CURSOR POR LOS ENLACES
+Hace visible la línea inferior y refuerza
+la interacción visual del usuario.*/
+nav a:hover::after {
+    width: 100%; /* Expande la línea a todo el ancho del enlace */
+}
+
+/* CAMBIO VISUAL DEL ENLACE AL PASAR EL CURSOR
+Modifica el color y posición para generar
+una sensación de interacción.*/
+nav a:hover {
+    color: #FFB74D; /* Cambia el color del texto al pasar el cursor */
+    transform: translateY(-2px); /* Eleva ligeramente el enlace */
+}
+
+/* ESTADO ACTIVO DEL ENLACE DEL MENÚ
+Indica visualmente la sección actual
+en la que se encuentra el usuario.*/
+nav a.activo {
+    color: #FFB74D; /* Resalta el enlace activo */
+}
+
+/* LÍNEA DECORATIVA DEL ENLACE ACTIVO
+Mantiene visible la línea inferior para
+indicar la sección seleccionada.*/
+nav a.activo::after {
+    width: 100%; /* Muestra la línea completa */
+    background: #FFB74D; /* Mantiene el color de resaltado */
+}
+
+/* ANIMACIONES DE APARICIÓN AL HACER SCROLL
+Se utilizan para que los elementos aparezcan
+de forma progresiva cuando entran en pantalla,
+mejorando la experiencia visual del usuario.*/
+.fade-in {
+    opacity: 0; /* Mantiene el elemento inicialmente invisible */
+    transform: translateY(30px); /* Desplaza el elemento hacia abajo */
+    transition: all 0.8s ease-out; /* Aplica una transición suave al mostrarse */
+}
+
+/* ESTADO VISIBLE DEL ELEMENTO
+Se activa cuando el elemento entra en
+la zona visible de la pantalla.*/
+.fade-in.visible {
+    opacity: 1; /* Hace visible el elemento */
+    transform: translateY(0); /* Devuelve el elemento a su posición original */
+}
+
+/* EFECTO PARA TARJETAS DE IMÁGENES
+Aplica transiciones y profundidad visual
+para generar un efecto interactivo.*/
+.imagen {
+    transition: all 0.4s ease; /* Suaviza los cambios al interactuar */
+    transform-style: preserve-3d; /* Mantiene el efecto tridimensional */
+    perspective: 1000px; /* Define la profundidad de la escena 3D */
+}
+
+/* EFECTO AL PASAR EL CURSOR SOBRE LA IMAGEN
+Genera un efecto de elevación y enfoque
+para resaltar el elemento.*/
+.imagen:hover {
+    transform: translateY(-10px) scale(1.02); /* Eleva y amplía ligeramente la imagen */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Agrega sombra para dar profundidad */
+}
+
+/* LÍNEA DECORATIVA EN LOS TÍTULOS
+Se utiliza un pseudoelemento para crear
+un subrayado visual debajo de los títulos.*/
+h2::after, h3::after {
+    content: ''; /* Crea el pseudoelemento decorativo */
+    position: absolute; /* Permite ubicar la línea respecto al título */
+    bottom: -5px; /* Coloca la línea ligeramente debajo del texto */
+    left: 0; /* Inicia desde el lado izquierdo */
+    width: 50px; /* Ancho inicial del subrayado */
+    height: 3px; /* Grosor de la línea */
+    background: linear-gradient(90deg, #F57C00, #FFB74D); /* Degradado decorativo */
+    transition: width 0.3s ease; /* Suaviza la animación del subrayado */
+}
+
+/* ANIMACIÓN DEL SUBRAYADO EN LOS TÍTULOS
+Al pasar el cursor, la línea se expande
+para resaltar el título.*/
+h2:hover::after, h3:hover::after {
+    width: 100%; /* Expande el subrayado a todo el ancho del título */
+}
+
+/* EFECTO DE BRILLO EN LOS BOTONES
+Se utiliza un pseudoelemento para crear
+un efecto de luz que se desplaza al pasar
+el cursor sobre el botón.*/
+.boton::before, a.boton::before, button[type="submit"]::before {
+    content: ''; /* Crea el pseudoelemento para el efecto visual */
+    position: absolute; /* Permite posicionar el brillo dentro del botón */
+    top: 0; /* Ubica el efecto en la parte superior */
+    left: -100%; /* Inicia fuera del botón por la izquierda */
+    width: 100%; /* Ocupa todo el ancho del botón */
+    height: 100%; /* Ocupa todo el alto del botón */
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent); /* Degradado tipo brillo */
+    transition: left 0.5s ease; /* Animación suave del desplazamiento */
+}
+
+/* EFECTO AL PASAR EL CURSOR SOBRE EL FORMULARIO
+Genera una sensación de elevación.*/
+form:hover {
+    transform: translateY(-5px); /* Eleva el formulario */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Aumenta la sombra */
+}
+/* ACTIVACIÓN DEL EFECTO DE BRILLO
+Al pasar el cursor, el brillo recorre
+todo el botón de izquierda a derecha.*/
+.boton:hover::before, a.boton:hover::before, button[type="submit"]:hover::before {
+    left: 100%; /* Desplaza el brillo fuera del botón por la derecha */
+}
+
+/* EFECTO VISUAL DEL BOTÓN AL INTERACTUAR
+Eleva el botón y refuerza su presencia
+mediante sombra y cambio de color.*/
+.boton:hover, a.boton:hover, main a.boton:hover, button[type="submit"]:hover {
+    transform: translateY(-3px); /* Eleva ligeramente el botón */
+    box-shadow: 0 8px 25px rgba(239, 108, 0, 0.4); /* Sombra más intensa */
+    background: linear-gradient(135deg, #EF6C00 0%, #F57C00 100%); /* Inversión del degradado */
+}
+
+/* ESTADO ACTIVO DE LOS CAMPOS
+Resalta el campo que está siendo usado.*/
+input:focus, textarea:focus {
+    outline: none; /* Elimina el borde por defecto del navegador */
+    border-color: #F57C00; /* Cambia el color del borde */
+    box-shadow: 0 0 0 3px rgba(245, 124, 0, 0.1); /* Resaltado suave */
+}
+
+/* EFECTO AL PASAR EL CURSOR SOBRE IMÁGENES
+Mejora la atención visual del usuario.*/
+img:hover {
+    filter: brightness(1); /* Restaura el brillo normal */
+    transform: scale(1.02); /* Aumenta ligeramente el tamaño */
+}
+
+/* EFECTO DEL BOTÓN AL PASAR EL CURSOR
+Refuerza la interacción con animación
+y cambio visual.*/
+#btnSubir:hover {
+    background: linear-gradient(135deg, #EF6C00 0%, #F57C00 100%); /* Invierte el degradado */
+    transform: scale(1.1) rotate(360deg); /* Aumenta tamaño y rota el botón */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
+}
+
+/* INDICADOR DE CARGA O ESTADO ACTIVO
+Aplica una animación de pulso para
+llamar la atención del usuario.*/
+.loading {
+    animation: pulse 1.5s infinite ease-in-out; /* Animación continua de pulso */
+}
+
+/* ANIMACIÓN DE PULSO
+Controla la variación de opacidad
+para simular un efecto de latido.*/
+@keyframes pulse {
+    0% { opacity: 0.6; } /* Estado inicial con menor opacidad */
+    50% { opacity: 1; } /* Máxima opacidad en el punto medio */
+    100% { opacity: 0.6; } /* Regresa a la opacidad inicial */
+}
+
+/* ANIMACIÓN DE EFECTO RIPPLE
+Define una animación de expansión que
+simula una onda o efecto de impacto.*/
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0); /* Inicia desde un punto pequeño */
+        opacity: 0.5; /* Opacidad inicial del efecto */
+    }
+    100% {
+        transform: scale(50, 50); /* Expande el efecto ampliamente */
+        opacity: 0; /* Desvanece completamente el efecto */
+    }
+}
+/* ANIMACIÓN DE ENTRADA DESDE ARRIBA
+Controla la aparición de un elemento
+desplazándolo desde la parte superior
+con un aumento progresivo de opacidad. */
 @keyframes fadeInDown {
     from {
-        opacity: 0;
-        transform: translateY(-30px);
+        opacity: 0; /* Elemento invisible al inicio */
+        transform: translateY(-30px); /* Posición inicial más arriba */
     }
     to {
-        opacity: 1;
-        transform: translateY(0);
+        opacity: 1; /* Elemento completamente visible */
+        transform: translateY(0); /* Posición final normal */
     }
 }
 
+/* ANIMACIÓN DE ENTRADA DESDE ABAJO
+Permite que el elemento aparezca de forma
+suave desplazándose hacia arriba. */
 @keyframes fadeInUp {
     from {
-        opacity: 0;
-        transform: translateY(30px);
+        opacity: 0; /* Inicio oculto */
+        transform: translateY(30px); /* Posición inicial más abajo */
     }
     to {
-        opacity: 1;
-        transform: translateY(0);
+        opacity: 1; /* Totalmente visible */
+        transform: translateY(0); /* Posición final */
     }
 }
 
+/* ANIMACIÓN DE DESLIZAMIENTO DESDE LA IZQUIERDA
+Genera un efecto de entrada horizontal
+desde el lado izquierdo de la pantalla. */
 @keyframes slideInLeft {
     from {
-        opacity: 0;
-        transform: translateX(-50px);
+        opacity: 0; /* Elemento oculto inicialmente */
+        transform: translateX(-50px); /* Posición inicial a la izquierda */
     }
     to {
-        opacity: 1;
-        transform: translateX(0);
+        opacity: 1; /* Elemento visible */
+        transform: translateX(0); /* Posición final normal */
     }
 }
 
+/* ANIMACIÓN DE DESLIZAMIENTO DESDE LA DERECHA
+Permite que el elemento aparezca con un
+movimiento horizontal desde el lado derecho,
+acompañado de un aumento progresivo de opacidad. */
 @keyframes slideInRight {
     from {
-        opacity: 0;
-        transform: translateX(50px);
+        opacity: 0; /* Elemento invisible al inicio */
+        transform: translateX(50px); /* Posición inicial hacia la derecha */
     }
     to {
-        opacity: 1;
-        transform: translateX(0);
+        opacity: 1; /* Elemento completamente visible */
+        transform: translateX(0); /* Posición final normal */
     }
 }
 
-/* Responsive */
+/* DISEÑO RESPONSIVE
+Ajusta tamaños y espaciados para
+dispositivos con pantallas medianas
+y pequeñas, mejorando la legibilidad
+y la usabilidad. */
 @media (max-width: 768px) {
+
+    /* Ajuste del título principal */
     header h1 {
-        font-size: 32px;
+        font-size: 32px; /* Reduce el tamaño del texto en pantallas pequeñas */
     }
     
+    /* Ajuste de enlaces del menú */
     nav a {
-        margin: 0 10px;
-        font-size: 16px;
+        margin: 0 10px; /* Reduce el espaciado horizontal */
+        font-size: 16px; /* Disminuye el tamaño del texto */
     }
     
+    /* Ajuste del botón para subir */
     #btnSubir {
-        width: 50px;
-        height: 50px;
-        bottom: 20px;
-        right: 20px;
+        width: 50px; /* Reduce el ancho del botón */
+        height: 50px; /* Reduce la altura del botón */
+        bottom: 20px; /* Ajusta la distancia inferior */
+        right: 20px; /* Ajusta la distancia lateral */
     }
 }

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivinar el Número</title>
+
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/animaciones.css">
+    <link rel="stylesheet" href="css/adivinar_numero.css">
+
+    <script src="js/scripts.js" defer></script>
+    <script src="js/adivinar_numero.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Adivinar el Número</h1>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="juegos.html" class="activo">Regresar a Juegos</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="adivinarNumero">
+            <h2>Intenta adivinar el número</h2>
+            
+            <p id="mensaje">Estoy pensando en un número entre 1 y 100. ¿Cuál es?</p>
+
+            <input type="number" id="numero" placeholder="Ingresa un número" min="1" max="100">
+            <button id="adivinar">Adivinar</button>
+
+            <p id="mensaje"></p>
+
+            <button id="reiniciar">Reiniciar Juego</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Alessandro Justo - Todos los derechos reservados</p>
+        </p>
+    </footer>
+
+    <button id="btnSubir">↑</button>
+</body>
+</html>
