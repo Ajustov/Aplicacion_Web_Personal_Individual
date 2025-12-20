@@ -2,58 +2,85 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis hobbies</title>
+
+    <!-- ESTILOS -->
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/animaciones.css">
+
+    <!-- SCRIPT -->
+    <script src="js/scripts.js" defer></script>
 </head>
-<body id="top">
-    
-    <nav id="menu-general">
-        <h2>Menú de navegación</h2>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="familia.html">Mi familia</a></li>
-            <li><a href="amigos.html">Mis amigos</a></li>
-            <li><a href="colegio.html">Mi colegio</a></li>
-            <li><a href="universidad.html">Mi universidad</a></li>
-            <li><a href="hobbies.html">Mis hobbies</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
+<body>
+
+    <header>
+        <h1>Mis hobbies</h1>
+        
+    </header>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="familia.html">Mi familia</a>
+        <a href="amigos.html">Mis amigos</a>
+        <a href="colegio.html">Mi colegio</a>
+        <a href="universidad.html">Mi universidad</a>
+        <a href="hobbies.html" class="activo">Mis hobbies</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="juegos.html">Juegos</a>
     </nav>
 
-    <div id="contenedor-principal">
-        <header>
-            <h1>Mis hobbies</h1>
-            <p>En mi tiempo libre me gusta realizar diversas actividades que me ayudan a relajarme, aprender cosas nuevas y mantenerme activo mentalmente. Estos son algunos de mis pasatiempos favoritos.</p>
-        </header>
+    <main>
 
-        <nav id="menu-rapido-seccion">
-            <h2 id="menu-rapido-title">Navegación rápida</h2>
-            <ul id="menu-rapido">
-                <li><a href="#hobbies">Lo que disfruto hacer</a></li>
-                <li><a href="#reflexion">Por qué son importantes para mí</a></li>
+        <section class="fade-in">
+            <h2>Presentación</h2>
+            <p>
+                En mi tiempo libre me gusta realizar diversas actividades que me ayudan a relajarme,
+                aprender cosas nuevas y mantenerme activo mentalmente.
+            </p>
+        </section>
+
+        <section id="hobbies" class="fade-in">
+            <h2>Lo que disfruto hacer</h2>
+            <ul class="lista-hobbies">
+                <li>
+                    <strong>Programar en Java:</strong>
+                    Me permite fortalecer mi lógica y resolver problemas.
+                </li>
+                <li>
+                    <strong>Jugar videojuegos:</strong>
+                    Me relaja y disfruto especialmente los de estrategia y battle royale.
+                </li>
+                <li>
+                    <strong>Ciberseguridad:</strong>
+                    Analizo la seguridad de mis dispositivos y me interesa el hacking ético.
+                </li>
+                <li>
+                    <strong>Ver videos educativos:</strong>
+                    Contenido sobre ciencia, programación y curiosidades.
+                </li>
             </ul>
-        </nav>
-        <main>
+        </section>
 
-            <section id="hobbies">
-                <h2>Lo que disfruto hacer</h2>
-                <ul>
-                    <li><strong>Programar en Java:</strong> Me gusta crear pequeños programas y probar nuevas ideas, ya que me permite mejorar mis habilidades de lógica y resolución de problemas.</li>
-                    <li><strong>Jugar videojuegos:</strong> Es una forma de distraerme y relajarme. Me gustan sobre todo los juegos de estrategia y battle royale.</li>
-                    <li><strong>Revisar la seguridad de mis dispositivos:</strong> Me interesa la ciberseguridad, así que suelo analizar y fortalecer la protección de mis equipos frente a posibles amenazas. Últimamente me ha llamado la atención el hacking ético e incluso realicé un curso gratuito de tres días sobre este tema.</li>
-                    <li><strong>Ver videos:</strong> En plataformas como YouTube, suelo ver contenido relacionado con ciencia, programación, curiosidades del mundo y, a veces, sobre videojuegos.</li>
-                </ul>
-            </section>
+        <section id="reflexion" class="fade-in">
+            <h2>Por qué son importantes para mí</h2>
+            <p>
+                Estos hobbies me ayudan a mantenerme motivado, enfocado y en constante aprendizaje.
+                Gracias a ellos he descubierto intereses que pueden influir en mi futuro profesional.
+            </p>
+        </section>
 
-            <section id="reflexion">
-                <h2>Por qué son importantes para mí</h2>
-                <p>Estos hobbies no solo me entretienen, sino que también me ayudan a mantenerme motivado, enfocado y en constante aprendizaje. Son una forma de liberarme de la monotonía y hacer mi vida más interesante. Gracias a ellos he podido descubrir intereses que podrían influir en mi futuro profesional.</p>
-            </section>
-        </main>
-    </div>
-    <footer id="pie-pagina">
-        <p><a href="#top">Volver arriba</a> | <a href="index.html">Volver al inicio</a></p>
+    </main>
+
+    <footer>
+        <p>
+            <a href="#btnSubir">Volver arriba</a> |
+            <a href="index.html">Volver al inicio</a>
+        </p>
     </footer>
+
+    <!-- BOTÓN SUBIR -->
+    <button id="btnSubir">↑</button>
+
 </body>
 </html>
-

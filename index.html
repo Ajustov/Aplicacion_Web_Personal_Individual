@@ -2,46 +2,73 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi sitio personal</title>
+
+    <!-- ESTILOS -->
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/animaciones.css">
+
+    <!-- SCRIPT -->
+    <script src="js/scripts.js" defer></script>
 </head>
 <body>
-    
-    <nav id="menu-general">
-        <h2>Menú de navegación</h2>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="familia.html">Mi familia</a></li>
-            <li><a href="amigos.html">Mis amigos</a></li>
-            <li><a href="colegio.html">Mi colegio</a></li>
-            <li><a href="universidad.html">Mi universidad</a></li>
-            <li><a href="hobbies.html">Mis hobbies</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
+
+    <header>
+        <h1>Bienvenidos a mi página personal</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="familia.html">Mi familia</a>
+        <a href="amigos.html">Mis amigos</a>
+        <a href="colegio.html">Mi colegio</a>
+        <a href="universidad.html">Mi universidad</a>
+        <a href="hobbies.html">Mis hobbies</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="juegos.html">Juegos</a>
     </nav>
 
-    
-    <div id="contenedor-principal">
-            <header>
-                <img src="imagenes/Foto_Personal.jpg" alt="foto personal" id="foto-personal">
-                <h1>Bienvenido a mi sitio personal</h1>
-                <p>¡Hola! Soy Alessandro, tengo 19 años y resido en Alto Jesús, Paucarpata, Arequipa - Perú. Actualmente estudio Ingeniería de Sistemas en la Universidad Nacional de San Agustín.</p>
-                <p>Me gusta la programación, el desarrollo de proyectos web y temas relacionados con ciberseguridad e inteligencia artificial. En mi tiempo libre, me gusta explorar nuevas herramientas digitales, experimentar con proyectos de software, entre otros.</p>
-                <p>En este sitio comparto partes de mi vida: mi familia, amigos, colegio, universidad y mis hobbies.</p>
-            </header>
-
+    <main>
+        
+        <section class="fade-in">
             
+            <h2>Bienvenido a mi sitio personal</h2>
+            <img src="imagenes/Foto_Personal.jpg" alt="Foto personal" class="foto-personal">
+            <br>
+            <p>
+                ¡Hola! Soy Alessandro, tengo 19 años y resido en Alto Jesús, Paucarpata,
+                Arequipa - Perú. Actualmente estudio Ingeniería de Sistemas en la
+                Universidad Nacional de San Agustín.
+            </p>
+            <p>
+                Me gusta la programación, el desarrollo de proyectos web y temas
+                relacionados con ciberseguridad e inteligencia artificial.
+            </p>
+            <p>
+                En este sitio comparto partes de mi vida: mi familia, amigos,
+                colegio, universidad y mis hobbies.
+            </p>
+        </section>
 
-            <main>
-                <section id="biografia">
-                    <h2>Acerca de mí</h2>
-                    <p>Me considero una persona curiosa y creativa. Me gusta resolver problemas, aprender cosas nuevas y aplicar mis conocimientos en proyectos prácticos, sobre todo si me ayudan en mi desarrollo profesional y también me permiten apoyar a mi familia. Espero que este sitio te permita conocer un poco más sobre mí y mis intereses.</p>
-                </section>
-            </main>
-    </div>
-    <footer id="pie-pagina">
+        <section id="biografia" class="fade-in">
+            <h2>Acerca de mí</h2>
+            <p>
+                Me considero una persona curiosa y creativa. Me gusta resolver problemas,
+                aprender cosas nuevas y aplicar mis conocimientos en proyectos prácticos,
+                sobre todo si contribuyen a mi desarrollo profesional y al bienestar
+                de mi familia.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
         <p>&copy; 2025 Alessandro Justo - Todos los derechos reservados</p>
     </footer>
+
+    <!-- BOTÓN SUBIR -->
+    <button id="btnSubir">↑</button>
+
 </body>
 </html>
-

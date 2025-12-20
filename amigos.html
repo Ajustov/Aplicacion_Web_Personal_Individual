@@ -2,70 +2,106 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis amigos</title>
-    <link rel="stylesheet" href="css/estilos.css">
-</head>
-<body id="top">
 
-    <nav id="menu-general">
-        <h2>Menú de navegación</h2>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="familia.html">Mi familia</a></li>
-            <li><a href="amigos.html">Mis amigos</a></li>
-            <li><a href="colegio.html">Mi colegio</a></li>
-            <li><a href="universidad.html">Mi universidad</a></li>
-            <li><a href="hobbies.html">Mis hobbies</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
+    <!-- ESTILOS -->
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/animaciones.css">
+
+    <!-- SCRIPT -->
+    <script src="js/scripts.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>Mis amigos</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="familia.html">Mi familia</a>
+        <a href="amigos.html">Mis amigos</a>
+        <a href="colegio.html">Mi colegio</a>
+        <a href="universidad.html">Mi universidad</a>
+        <a href="hobbies.html">Mis hobbies</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="juegos.html">Juegos</a>
     </nav>
 
-    <div id="contenedor-principal">
-        <header>
-            <h1>Mis amigos</h1>
-            <p>A lo largo de los años he conocido a muchas personas, pero solo algunas han dejado una huella importante en mi vida. Aquí menciono a mis amigos más cercanos del colegio y de la universidad.</p>
-        </header>
-        
-        <nav id="menu-rapido-seccion">
-            <h2 id="menu-rapido-title">Navegación rápida</h2>
-            <ul id="menu-rapido">
-                <li><a href="#colegio">Amigos del colegio</a></li>
-                <li><a href="#universidad">Amigos de la universidad</a></li>
+    <main>
+
+        <section class="fade-in">
+            <h2>Introducción</h2>
+            <p>
+                A lo largo de los años he conocido a muchas personas, pero solo algunas han dejado
+                una huella importante en mi vida. Aquí menciono a mis amigos más cercanos del colegio
+                y de la universidad.
+            </p>
+        </section>
+
+        <section id="colegio" class="fade-in">
+            <h2>Amigos del colegio</h2>
+
+            <p>
+                Con ellos compartí muchos momentos importantes durante mi etapa escolar. Solía
+                ayudarlos con los trabajos grupales y las tareas, y gracias a eso pasábamos bastante
+                tiempo juntos.
+            </p>
+
+            <ul>
+                <li><strong>Leo:</strong> Lo conocí desde inicial. Fue uno de mis mejores amigos. Aunque
+                luego la confianza disminuyó, le guardo un gran aprecio.</li>
+
+                <li><strong>Rodrigo:</strong> Amigo desde inicial. A veces cumplía tarde, pero siempre
+                compartimos buenos momentos.</li>
+
+                <li><strong>José:</strong> Amigo desde cuarto grado. Responsable y aplicado en los estudios.</li>
+
+                <li><strong>Kevin:</strong> Amigo desde cuarto grado. Siempre trataba de cumplir con sus tareas.</li>
+
+                <li><strong>Leonet:</strong> Responsable y cumplido. Compartimos muchas salidas y juegos.</li>
             </ul>
-        </nav>
 
-        <main>
-            <section id="colegio">
-                <h2>Amigos del colegio</h2>
-                <p>Con ellos compartí muchos momentos importantes durante mi etapa escolar. Solía ayudarlos con los trabajos grupales y las tareas, y gracias a eso pasábamos bastante tiempo juntos.</p>
-                <ul>
-                    <li><strong>Leo:</strong> Lo conocí desde inicial, el fue unos de mis mejores amigos. No era muy aplicado, pero sí cumplía con sus responsabilidades. En las salidas solíamos caminar hasta un mercado conversando con mis demás amigos, y por las tardes jugábamos videojuegos. Siempre fue alguien en el que podía confiar, aunque luego luego esa confianza bajo, igualmente le guardo ese aprecio de siempre.</li>
-                    <li><strong>Rodrigo:</strong> También lo conocí desde inicial. No siempre era responsable, pero sí se preocupaba por cumplir, aunque a veces un poco tarde. En las salidas caminábamos al mercado con los demás, y también compartíamos tardes de videojuegos.</li>
-                    <li><strong>José:</strong> Nuestra amistad empezó en cuarto grado, aunque ya lo conocía desde antes. Era responsable y aplicado en los estudios. Al igual que los demás, en las salidas íbamos al mercado y luego pasábamos las tardes jugando videojuegos.</li>
-                    <li><strong>Kevin:</strong> También me hice su amigo en cuarto grado. No era muy aplicado, pero siempre trataba de cumplir con sus tareas. Solíamos conversar cuando saliamos al mercado y jugar videojuegos por las tardes.</li>
-                    <li><strong>Leonet:</strong> Nos hicimos amigos en cuarto grado. No era de los más aplicados, pero sí cumplido y responsable. En las salidas caminábamos juntos al mercado con los demás y jugábamos videojuegos por las tardes.</li>
-                </ul>
+            <p>
+                También tuve otros amigos no tan cercanos como Elber, Hosama, Lucas y Jefry, a quienes
+                recuerdo con aprecio.
+            </p>
 
-                <p>También tuve otros amigos no tan cercanos como Elber, Hosama, Lucas y Jefry. No hablaba mucho con ellos, pero los recuerdo con aprecio. Además, en inicial tuve dos amigos de los cuales tengo pocos recuerdos; solo logro recordar sus nombres: Gabriel y Leonardo.</p>
+            <p>
+                Hoy en día mantengo poca comunicación con la mayoría, pero los sigo considerando
+                buenos amigos.
+            </p>
+        </section>
 
-                <p>Hoy en día mantengo poca comunicación con la mayoría, ya que tomaron otro rumbo. Aunque nuestras vidas siguieron caminos diferentes, los sigo considerando buenos amigos con los que compartí una parte importante de mi vida.</p>
-            </section>
+        <section id="universidad" class="fade-in">
+            <h2>Amigos de la universidad</h2>
 
-            <section id="universidad">
-                <h2>Amigos de la universidad</h2>
-                <p>En la universidad he conocido a tres personas que, poco a poco, he llegado a considerar como amigos. Aunque no suelo hablar mucho con ellos, siempre nos ayudamos mutuamente, sobre todo cuando se trata de trabajos o proyectos grupales.</p>
-                <ul>
-                    <li><strong>Jonnier:</strong> Lo conocí el primer día de clases, en el primer semestre, ya que nos sentamos en la misma carpeta. Desde entonces hemos compartido varios trabajos grupales. No solemos pasar mucho tiempo fuera de clases, pero nos entendemos bien y casi siempre formamos grupo.</li>
-                    <li><strong>José:</strong> Lo conocí también en el primer semestre, durante el primer trabajo grupal. Hemos trabajado juntos en varias ocasiones, y aunque no hablamos mucho fuera del aula, siempre hemos mantenido una buena relación. Me parece una persona amable y confiable.</li>
-                    <li><strong>Jhonatan:</strong> Lo conocí en el mismo semestre y también en el primer trabajo grupal. Durante ese tiempo solíamos sentarnos juntos casi todos los días, aunque no conversábamos mucho. Actualmente seguimos sentándonos cerca y, aunque no tenemos mucha interacción, me parece alguien tranquilo, respetuoso y con quien es fácil trabajar. Por eso lo considero un buen amigo.</li>
-                </ul>
+            <p>
+                En la universidad he conocido a algunas personas que considero amigos, principalmente
+                por el apoyo mutuo en trabajos y proyectos.
+            </p>
 
-                <p>Estos son los amigos que he conocido en la universidad. No soy una persona muy sociable ni suelo relacionarme fácilmente, pero por el tiempo compartido y la buena convivencia los considero amigos. Aunque no sé si ellos me ven de la misma manera, siempre trataré de brindarles mi apoyo cuando lo necesiten.</p>
-            </section>
-        </main>
-    </div>
-    <footer id="pie-pagina">
-        <p><a href="#top">Volver arriba</a> | <a href="index.html">Volver al inicio</a></p>
+            <ul>
+                <li><strong>Jonnier:</strong> Compañero desde el primer día de clases.</li>
+                <li><strong>José:</strong> Amigo desde el primer trabajo grupal.</li>
+                <li><strong>Jhonatan:</strong> Tranquilo y respetuoso, con quien es fácil trabajar.</li>
+            </ul>
+
+            <p>
+                No soy una persona muy sociable, pero por la convivencia y el tiempo compartido los
+                considero amigos.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2025 - Página personal</p>
     </footer>
+
+    <!-- BOTÓN SUBIR -->
+    <button id="btnSubir">↑</button>
+
 </body>
 </html>

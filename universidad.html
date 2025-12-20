@@ -2,64 +2,88 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi universidad</title>
+
+    <!-- ESTILOS -->
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/animaciones.css">
+
+    <!-- SCRIPT -->
+    <script src="js/scripts.js" defer></script>
 </head>
-<body id="top">
-    
-    <nav id="menu-general">
-        <h2>Menú de navegación</h2>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="familia.html">Mi familia</a></li>
-            <li><a href="amigos.html">Mis amigos</a></li>
-            <li><a href="colegio.html">Mi colegio</a></li>
-            <li><a href="universidad.html">Mi universidad</a></li>
-            <li><a href="hobbies.html">Mis hobbies</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
+<body>
+
+    <header>
+        <h1>Mi universidad</h1>
+        
+    </header>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="familia.html">Mi familia</a>
+        <a href="amigos.html">Mis amigos</a>
+        <a href="colegio.html">Mi colegio</a>
+        <a href="universidad.html" class="activo">Mi universidad</a>
+        <a href="hobbies.html">Mis hobbies</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="juegos.html">Juegos</a>
     </nav>
 
-    <div id="contenedor-principal">
-        <header>
-            <h1>Mi universidad</h1>
-            <p>Actualmente estudio Ingeniería de Sistemas en la Universidad Nacional de San Agustín de Arequipa (UNSA). Terminé el primer semestre y actualmente estoy cursando el segundo.</p>
-        </header>
+    <main>
 
-        <nav id="menu-rapido-seccion">
-            <h2 id="menu-rapido-title">Navegación rápida</h2>
-            <ul id="menu-rapido">
-                <li><a href="#experiencia-universitaria">Mi experiencia en la universidad</a></li>
-                <li><a href="#aprendizajes">Conocimientos adquiridos</a></li>
-                <li><a href="#metas">Mis metas académicas</a></li>
+        <section class="fade-in">
+            <h2>Introducción</h2>
+            <p>
+                Actualmente estudio Ingeniería de Sistemas en la Universidad Nacional
+                de San Agustín de Arequipa (UNSA). Terminé el primer semestre y actualmente
+                estoy cursando el segundo.
+            </p>
+        </section>
+
+        <section id="experiencia-universitaria" class="fade-in">
+            <h2>Mi experiencia en la universidad</h2>
+            <p>
+                Desde que ingresé a la UNSA, he aprendido sobre programación,
+                matemáticas y ciencias sociales. También he desarrollado
+                habilidades para trabajar en equipo y resolver problemas
+                de manera lógica y estructurada.
+            </p>
+        </section>
+
+        <section id="aprendizajes" class="fade-in">
+            <h2>Conocimientos adquiridos</h2>
+            <ul>
+                <li>Programación básica en Java y principios de POO.</li>
+                <li>Fundamentos de desarrollo web: HTML y CSS.</li>
+                <li>Asignaturas de formación general y ciencias sociales.</li>
+                <li>Fortalecimiento del razonamiento lógico y habilidades blandas.</li>
             </ul>
-        </nav>
+        </section>
 
-        <main>
-            <section id="experiencia-universitaria">
-                <h2>Mi experiencia en la universidad</h2>
-                <p>Desde que ingresé a la UNSA, he aprendido mucho sobre programación, matemáticas y algunas ciencias sociales. También he mejorado mis habilidades para trabajar en equipo y resolver problemas de manera lógica y estructurada.</p>
-            </section>
+        <section id="metas" class="fade-in">
+            <h2>Mis metas académicas</h2>
+            <p>
+                Deseo seguir aprendiendo sobre desarrollo de software,
+                matemáticas y habilidades blandas, además de profundizar
+                de manera autodidacta en inteligencia artificial y
+                ciberseguridad. Mi objetivo es culminar la carrera con
+                un perfil sólido y vocación clara hacia la Ingeniería
+                de Sistemas.
+            </p>
+        </section>
 
-            <section id="aprendizajes">
-                <h2>Conocimientos adquiridos</h2>
-                <ul>
-                    <li>Programación básica en lenguajes como Java y principios de programación orientada a objetos.</li>
-                    <li>Fundamentos de programación web (HTML, CSS y, próximamente, JavaScript).</li>
-                    <li>Asignaturas de ciencias sociales como Metodologia del trabajo Academico; Lingüística,Comprensión y Redacción Académica y Realidad Nacional.</li>
-                    <li>Desarrollo de razonamiento lógico y fortalecimiento de habilidades blandas.</li>
-                </ul>
-            </section>
+    </main>
 
-            <section id="metas">
-                <h2>Mis metas académicas</h2>
-                <p>Deseo seguir aprendiendo sobre desarrollo de software, matematicas y habilidades blandas; y tambien individualmente sobre inteligencia artificial, ciberseguridad y espero que en algun momento lo enseñen en la carrera. Aún no tengo definida la especialidad que seguiré en el futuro, pero estoy seguro de que será una relacionada con mis intereses dentro de esta carrera. Mi meta principal es culminar mis estudios con un perfil sólido y vocación hacia mi carrera.</p>
-            </section>
-        </main>
-    </div>
-    <footer id="pie-pagina">
-        <p><a href="#top">Volver arriba</a> | <a href="index.html">Volver al inicio</a></p>
+    <footer>
+        <p>
+            <a href="#btnSubir">Volver arriba</a> |
+            <a href="index.html">Volver al inicio</a>
+        </p>
     </footer>
+
+    <!-- BOTÓN SUBIR -->
+    <button id="btnSubir">↑</button>
+
 </body>
 </html>
-

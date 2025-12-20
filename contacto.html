@@ -2,96 +2,73 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto</title>
+
+    <!-- ESTILOS -->
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/animaciones.css">
+
+    <!-- SCRIPT -->
+    <script src="js/scripts.js" defer></script>
 </head>
-<body id="top">
-    
-    <nav id="menu-general">
-        <h2>Menú de navegación</h2>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="familia.html">Mi familia</a></li>
-            <li><a href="amigos.html">Mis amigos</a></li>
-            <li><a href="colegio.html">Mi colegio</a></li>
-            <li><a href="universidad.html">Mi universidad</a></li>
-            <li><a href="hobbies.html">Mis hobbies</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
+<body>
+
+    <header>
+        <h1>Contacto</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="familia.html">Mi familia</a>
+        <a href="amigos.html">Mis amigos</a>
+        <a href="colegio.html">Mi colegio</a>
+        <a href="universidad.html">Mi universidad</a>
+        <a href="hobbies.html">Mis hobbies</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="juegos.html">Juegos</a>
     </nav>
 
-    <div id="contenedor-principal">
-        <header>
-            <h1>Contacto</h1>
-            <p>Si deseas comunicarte conmigo, puedes escribirme o dejarme un mensaje a través de mi número de teléfono, mi correo electrónico o mediante el formulario de contacto.</p>
-        </header>
+    <main>
 
-        <nav id="menu-rapido-seccion">
-            <h2 id="menu-rapido-title">Navegación rápida</h2>
-            <ul id="menu-rapido">
-                <li><a href="#informacion-contacto">Información personal</a></li>
-                <li><a href="#formulario-contacto">Formulario de contacto</a></li>
-                <li><a href="#redes-sociales">Redes sociales</a></li>
+        <section class="fade-in">
+            <h2>Información personal</h2>
+            <p><strong>Correo:</strong> ajustov@unsa.edu.pe</p>
+            <p><strong>Celular:</strong> +51 921 538 600</p>
+            <p><strong>Ubicación:</strong> Paucarpata, Arequipa - Perú</p>
+        </section>
+
+        <section class="fade-in">
+            <h2>Envíame un mensaje</h2>
+
+            <!-- FORMULARIO CONECTADO AL JS -->
+            <form id="formContacto">
+                <input type="text" id="nombre" placeholder="Nombre completo" required>
+                <input type="email" id="email" placeholder="Correo electrónico" required>
+                <textarea id="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+
+                <button type="submit">Enviar mensaje</button>
+            </form>
+        </section>
+
+        <section class="fade-in">
+            <h2>Redes sociales</h2>
+            <ul>
+                <li><strong>Facebook:</strong> Alessandro Justo</li>
+                <li><strong>Instagram:</strong> alessandro.justo.790</li>
+                <li><strong>Twitter:</strong> @Alessandro85766</li>
+                <li><strong>Facebook (ventas):</strong> DXN A. Justo</li>
             </ul>
-        </nav>
+        </section>
 
-        <main>
-            <section id="informacion-contacto">
-                <h2>Información personal</h2>
-                <p><strong>Correo:</strong> ajustov@unsa.edu.pe</p>
-                <p><strong>Número de celular:</strong> +51 921 538 600</p>
-                <p><strong>Ubicación:</strong> Paucarpata, Arequipa - Perú</p>
-            </section>
-            
-            <section id="formulario-contacto">
-                <h2>Envíame un mensaje</h2>
-                <form id="form-contacto" action="#" method="post">
-                    <label for="nombre">Nombre completo:</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+    </main>
 
-                    <label for="correo">Correo electrónico:</label>
-                    <input type="email" id="correo" name="correo" placeholder="Ingresa tu correo" required>
-
-                    <label for="fecha-nacimiento">Fecha de nacimiento:</label>
-                    <input type="date" id="fecha-nacimiento" name="fecha-nacimiento">
-                    <p id="edad"></p>
-
-                    <label for="asunto">Asunto:</label>
-                    <input type="text" id="asunto" name="asunto" placeholder="Motivo del mensaje" required>
-
-                    <label for="mensaje">Mensaje:</label>
-                    <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
-
-                    <button type="submit">Enviar mensaje</button>
-                    <button type="reset">Limpiar</button>
-                </form>
-            </section>
-
-            <section id="redes-sociales">
-                <h2>Redes sociales</h2>
-                <p>También puedes comunicarte conmigo mediante mis redes:</p>
-                <ul>
-                    <li><strong>Facebook:</strong> Alessandro Justo</li>
-                    <li><strong>Instagram:</strong> alessandro.justo.790</li>
-                    <li><strong>Twitter:</strong> @Alessandro85766</li>
-                    <li><strong>Facebook (ventas y afiliaciones):</strong> DXN A. Justo</li>
-                </ul>
-            </section>
-
-            <section id="informacion-adicional" style="display: none;">
-                <h2>Información adicional</h2>
-                <p>Gracias por visitar mi página. Este sitio fue creado como parte de mis estudios en la Escuela Profesional de Ingeniería de Sistemas de la UNSA.</p>
-            </section>
-
-            <button id="mostrar-info">Mostrar información adicional</button>
-        </main>
-    </div>
-
-    <footer id="pie-pagina">
-        <p><a href="#top">Volver arriba</a> | <a href="index.html">Volver al inicio</a></p>
+    <footer>
+        <p>© 2025 - Página personal</p>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- BOTÓN SUBIR -->
+    <button id="btnSubir">↑</button>
+
 </body>
 </html>
-

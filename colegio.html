@@ -2,71 +2,91 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi colegio</title>
+
+    <!-- ESTILOS -->
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/animaciones.css">
+
+    <!-- SCRIPT -->
+    <script src="js/scripts.js" defer></script>
 </head>
-<body id="top">
-    
-    <nav id="menu-general">
-        <h2>Menú de navegación</h2>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="familia.html">Mi familia</a></li>
-            <li><a href="amigos.html">Mis amigos</a></li>
-            <li><a href="colegio.html">Mi colegio</a></li>
-            <li><a href="universidad.html">Mi universidad</a></li>
-            <li><a href="hobbies.html">Mis hobbies</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
+<body>
+
+    <header>
+        <h1>Mi colegio</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="familia.html">Mi familia</a>
+        <a href="amigos.html">Mis amigos</a>
+        <a href="colegio.html">Mi colegio</a>
+        <a href="universidad.html">Mi universidad</a>
+        <a href="hobbies.html">Mis hobbies</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="juegos.html">Juegos</a>
     </nav>
 
-    <div id="contenedor-principal">
-        <header>
-            <h1>Mi colegio</h1>
-            <p>Estudié en la <strong>I.E.P. Santa Rosa de Lima</strong>, donde formé valores, conocimientos y amistades que marcaron una gran parte de mi vida. Aunque no todo fue perfecto, guardo recuerdos valiosos de mi paso por esta institución.</p>
-        </header>
-        
-        <nav id="menu-rapido-seccion">
-            <h2 id="menu-rapido-title">Navegación rápida</h2>
-            <ul id="menu-rapido">
-                <li><a href="#vida">Mi vida dentro del colegio</a></li>
-                <li><a href="#convivencia">Ambiente y convivencia</a></li>
-                <li><a href="#recuerdos">Mis mejores recuerdos</a></li>
-                <li><a href="#reflexion">Reflexión final</a></li>
+    <main>
+
+        <section class="fade-in">
+            <h2>Introducción</h2>
+            <p>
+                Estudié en la <strong>I.E.P. Santa Rosa de Lima</strong>, donde formé valores,
+                conocimientos y amistades que marcaron una gran parte de mi vida.
+            </p>
+        </section>
+
+        <section id="vida" class="fade-in">
+            <h2>Mi vida dentro del colegio</h2>
+            <p>
+                Comencé mis estudios desde el nivel inicial y continué en la misma institución
+                hasta culminar la secundaria.
+            </p>
+            <p>
+                Aprendí la importancia de la responsabilidad, el respeto y el compañerismo,
+                participando en ferias, concursos y actividades culturales.
+            </p>
+        </section>
+
+        <section id="convivencia" class="fade-in">
+            <h2>Ambiente y convivencia</h2>
+            <p>
+                La convivencia en general fue buena. Mi promoción siempre se mantuvo unida
+                a pesar de las diferencias.
+            </p>
+            <p>
+                Reconozco el esfuerzo de muchos docentes por formar personas con principios sólidos.
+            </p>
+        </section>
+
+        <section id="recuerdos" class="fade-in">
+            <h2>Mis mejores recuerdos</h2>
+            <ul>
+                <li>Las celebraciones del <strong>Día del Estudiante</strong>.</li>
+                <li>Las <strong>olimpiadas</strong> escolares.</li>
+                <li>El <strong>viaje de promoción</strong>.</li>
             </ul>
-        </nav>
+        </section>
 
-        <main>
-            <section id="vida">
-                <h2>Mi vida dentro del colegio</h2>
-                <p>Comencé mis estudios desde el nivel inicial, en el jardín de 5 años, y continué en la misma institución hasta culminar la secundaria. A lo largo de esos años, viví muchas experiencias que me ayudaron a madurar y entender mejor mi entorno.</p>
-                <p>Durante mi etapa escolar aprendí la importancia de la responsabilidad, el respeto y el compañerismo. También participé en diversas actividades, como ferias de ciencia, concursos dentro de mi colegio —en mi caso, armar un cubo rubik— y danzas en fechas especiales.</p>
-            </section>
+        <section id="reflexion" class="fade-in">
+            <h2>Reflexión final</h2>
+            <p>
+                El colegio fue una etapa fundamental de mi vida. A pesar de las dificultades,
+                guardo con cariño todos esos recuerdos.
+            </p>
+        </section>
 
-            <section id="convivencia">
-                <h2>Ambiente y convivencia</h2>
-                <p>La convivencia en general fue buena. Mi promoción, a la que conocí desde jardín, siempre se mantuvo unida a pesar de las diferencias. Hubo algunos momentos difíciles, especialmente alrededor del año 2021, pero con el tiempo supimos superarlos y fortalecer la unión del grupo.</p>
-                <p>Aunque me hubiera gustado que ciertos valores se reflejaran más en la administración del colegio, reconozco el esfuerzo de muchos docentes por formar personas con principios sólidos.</p>
-            </section>
+    </main>
 
-            <section id="recuerdos">
-                <h2>Mis mejores recuerdos</h2>
-                <ul>
-                    <li>Las celebraciones del <strong>Día del Estudiante</strong>, ya que solían ser libres y podía pasar tiempo con mis amigos y hacer lo que queríamos sin excedernos sobre las reglas.</li>
-                    <li>Las <strong>olimpiadas</strong>, donde todos los grados y secciones participaban; algunos años yo también formé parte.</li>
-                    <li>El <strong>viaje de promoción</strong>, donde fuimos a Rica y nos detuvimos en varios lugares durante el recorrido.</li>
-                </ul>
-            </section>
-
-            <section id="reflexion">
-                <h2>Mi reflexión final acerca del colegio</h2>
-                <p>El colegio fue una etapa fundamental de mi vida. Me ayudó a entender la importancia del esfuerzo y la disciplina, y también a valorar el trabajo en equipo y la amistad. A pesar de las dificultades, guardo con cariño todos esos recuerdos.</p>
-            </section>
-        </main>
-    </div>
-    <footer id="pie-pagina">
-        <p><a href="#top">Volver arriba</a> | <a href="index.html">Volver al inicio</a></p>
+    <footer>
+        <p>© 2025 - Página personal</p>
     </footer>
+
+    <!-- BOTÓN SUBIR -->
+    <button id="btnSubir">↑</button>
+
 </body>
 </html>
-
