@@ -39,19 +39,20 @@
         <section class="fade-in">
             <h2>Envíame un mensaje</h2>
 
-            <form id="formContacto">
-                <input type="text" id="nombre" placeholder="Nombre completo" required>
-                <input type="email" id="email" placeholder="Correo electrónico" required>
+            <form id="formContacto" method="POST" action="/enviar">
+                <input type="text" name="nombre" id="nombre" placeholder="Nombre completo" required>
+                <input type="email" name="email" id="email" placeholder="Correo electrónico" required>
 
-                <input type="text" id="asunto" placeholder="Asunto (opcional)">
+                <input type="text" name="asunto" id="asunto" placeholder="Asunto (opcional)">
 
-                <input type="date" id="fecha-nacimiento" placeholder="Fecha de nacimiento">
+                <input type="date" name="fecha" id="fecha-nacimiento">
                 <span id="edad" style="display:block; margin-bottom:10px; font-weight:500;"></span>
 
-                <textarea id="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                <textarea name="mensaje" id="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
 
                 <button type="submit">Enviar mensaje</button>
             </form>
+
 
             <button type="button" id="mostrar-info">Mostrar información adicional</button>
             <div id="informacion-adicional" style="display:none; margin-top:15px;">
