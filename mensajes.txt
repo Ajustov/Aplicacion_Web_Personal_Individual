@@ -1,0 +1,8 @@
+---- NUEVO MENSAJE ----
+Nombre: Maria Julia Alvarez del Rio
+Email: maria@example.com
+Asunto: Tarea para probar (2)
+Fecha nacimiento: 2009-01-29
+Mensaje: Buenas tardes, solo pruebo server.py y que la pagina este conectada correctamente a la base de datos conexion_db.(2)
+
+

@@ -4,21 +4,21 @@ from datetime import datetime
 import os
 import mysql.connector
 
-# CONFIGURACIÓN DE LA BASE DE DATOS MYSQL
+# CONFIGURACIÓN: Parámetros de conexión a la base de datos MySQL
 db_config = {
     "host": "localhost",
     "user": "root",
-    "password": "",      # cambia si tu MySQL tiene contraseña
+    "password": "",      # Cambia si tu MySQL tiene contraseña
     "database": "contactos_db"
 }
 
 class MiServidor(BaseHTTPRequestHandler):
 
-    # PETICIONES GET: Manejo de carga de archivos y navegación
+    # PETICIONES GET: Manejo de carga de archivos, navegación y rutas protegidas
     def do_GET(self):
         ruta = self.path
-
-        # 🔐 RUTA PROTEGIDA: LOGIN ADMIN (AQUÍ VA)
+        
+        # ACCESO ADMIN: Generación del formulario de login para el administrador
         if ruta == "/admin":
             self.send_response(200)
             self.send_header("Content-Type", "text/html; charset=utf-8")
@@ -43,19 +43,77 @@ class MiServidor(BaseHTTPRequestHandler):
             </html>
             """
             self.wfile.write(html.encode("utf-8"))
-            return  # ⛔ IMPORTANTE: corta aquí
+            return
         
-        # Enrutado inicial a la página principal
+        # CONSULTA DB: Recuperación y visualización de mensajes desde MySQL
+        if ruta == "/ver_mensajes":
+            try:
+                conexion = mysql.connector.connect(**db_config)
+                cursor = conexion.cursor()
+
+                # Obtener mensajes ordenados por fecha de forma descendente
+                cursor.execute("""
+                    SELECT nombre, email, asunto, mensaje, fecha_envio
+                    FROM mensajes
+                    ORDER BY fecha_envio DESC
+                """)
+                mensajes = cursor.fetchall()
+
+                cursor.close()
+                conexion.close()
+
+                self.send_response(200)
+                self.send_header("Content-Type", "text/html; charset=utf-8")
+                self.end_headers()
+
+                html = """
+                <html>
+                <head>
+                    <meta charset="utf-8">
+                    <title>Mensajes recibidos</title>
+                    <link rel="stylesheet" href="css/estilos.css">
+                    <link rel="stylesheet" href="css/animaciones.css">
+                </head>
+                <body>
+                    <main style="width:80%;margin:auto;">
+                        <h2>Mensajes recibidos</h2>
+                """
+
+                # Construcción dinámica de la lista de mensajes
+                for m in mensajes:
+                    html += f"""
+                    <div style="border:1px solid #ccc;padding:10px;margin-bottom:10px;">
+                        <strong>Nombre:</strong> {m[0]}<br>
+                        <strong>Email:</strong> {m[1]}<br>
+                        <strong>Asunto:</strong> {m[2]}<br>
+                        <strong>Mensaje:</strong> {m[3]}<br>
+                        <small>{m[4]}</small>
+                    </div>
+                    """
+
+                html += """
+                        <a href="/" class="boton">Volver al inicio</a><br><br>
+                        <button id="btnSubir">↑</button>
+                    </main>
+                </body>
+                </html>
+                """
+                self.wfile.write(html.encode("utf-8"))
+
+            except Exception as e:
+                self.send_error(500, f"Error al obtener mensajes: {e}")
+            return
+
+        # ENRUTADO: Gestión de archivos estáticos (HTML, CSS, JS, Imágenes)
         if ruta == "/":
             ruta = "/index.html"
 
         archivo = ruta.lstrip("/")
 
-        # Verificación y envío de archivos estáticos
         if os.path.isfile(archivo):
             self.send_response(200)
             
-            # Asignación de Content-Type según extensión
+            # Cabeceras según el tipo de archivo solicitado
             if archivo.endswith(".html"):
                 self.send_header("Content-Type", "text/html; charset=utf-8")
             elif archivo.endswith(".css"):
@@ -69,23 +127,23 @@ class MiServidor(BaseHTTPRequestHandler):
 
             self.end_headers()
 
-            # Lectura y escritura del archivo en la respuesta
+            # Envío del contenido del archivo binario
             with open(archivo, "rb") as f:
                 self.wfile.write(f.read())
         else:
             self.send_error(404, "Archivo no encontrado")
 
-    # PETICIONES POST: Procesamiento de datos del formulario
+    # PETICIONES POST: Procesamiento de login y envío de formularios
     def do_POST(self):
 
+        # LOGIN: Verificación de credenciales de administrador
         if self.path == "/login":
             content_length = int(self.headers["Content-Length"])
             body = self.rfile.read(content_length).decode("utf-8")
             datos = parse_qs(body)
-
             password = datos.get("password", [""])[0]
 
-            if password == "admin123":  # contraseña simple
+            if password == "admin123":  # Validación de acceso simple
                 self.send_response(302)
                 self.send_header("Location", "/ver_mensajes")
                 self.end_headers()
@@ -103,23 +161,20 @@ class MiServidor(BaseHTTPRequestHandler):
                 """.encode("utf-8"))
             return
         
-        
+        # PROCESAMIENTO: Captura de datos del formulario de contacto
         if self.path == "/enviar":
             content_length = int(self.headers["Content-Length"])
             body = self.rfile.read(content_length).decode("utf-8")
-
-            # Parseo de datos recibidos
             datos = parse_qs(body)
-            mensaje = datos.get("mensaje", [""])[0]
+            
             fecha_envio = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
             nombre = datos.get("nombre", [""])[0]
             email = datos.get("email", [""])[0]
             asunto = datos.get("asunto", [""])[0]
             fecha = datos.get("fecha", [""])[0]
             mensaje = datos.get("mensaje", [""])[0]
 
-            # ALMACENAMIENTO: Registro de mensajes en archivo de texto
+            # LOG LOCAL: Registro de respaldo en archivo de texto
             with open("mensajes.txt", "a", encoding="utf-8") as f:
                 f.write("---- NUEVO MENSAJE ----\n")
                 f.write(f"Nombre: {nombre}\n")
@@ -128,7 +183,7 @@ class MiServidor(BaseHTTPRequestHandler):
                 f.write(f"Fecha nacimiento: {fecha}\n")
                 f.write(f"Mensaje: {mensaje}\n\n")
                 
-            # ALMACENAMIENTO: Guardar mensaje en MySQL
+            # MYSQL: Inserción de los datos en la base de datos
             try:
                 conexion = mysql.connector.connect(**db_config)
                 cursor = conexion.cursor()
@@ -138,19 +193,17 @@ class MiServidor(BaseHTTPRequestHandler):
                     (nombre, email, asunto, fecha_nacimiento, mensaje, fecha_envio)
                     VALUES (%s, %s, %s, %s, %s, %s)
                 """
-
                 valores = (nombre, email, asunto, fecha, mensaje, fecha_envio)
 
                 cursor.execute(sql, valores)
                 conexion.commit()
-
                 cursor.close()
                 conexion.close()
 
             except Exception as e:
                 print("Error al guardar en MySQL:", e)
 
-            # RESPUESTA: Generación de confirmación en HTML
+            # RESPUESTA: Página de confirmación tras envío exitoso
             self.send_response(200)
             self.send_header("Content-Type", "text/html; charset=utf-8")
             self.end_headers()
@@ -171,10 +224,9 @@ class MiServidor(BaseHTTPRequestHandler):
             </body>
             </html>
             """
-
             self.wfile.write(respuesta.encode("utf-8"))
 
-# EJECUCIÓN: Configuración e inicio del servidor local
+# EJECUCIÓN: Configuración e inicio del servidor en el puerto local
 if __name__ == "__main__":
     puerto = 8000
     servidor = HTTPServer(("localhost", puerto), MiServidor)
