@@ -18,6 +18,33 @@ class MiServidor(BaseHTTPRequestHandler):
     def do_GET(self):
         ruta = self.path
 
+        # 🔐 RUTA PROTEGIDA: LOGIN ADMIN (AQUÍ VA)
+        if ruta == "/admin":
+            self.send_response(200)
+            self.send_header("Content-Type", "text/html; charset=utf-8")
+            self.end_headers()
+
+            html = """
+            <html>
+            <head>
+                <meta charset="utf-8">
+                <title>Acceso administrador</title>
+                <link rel="stylesheet" href="css/estilos.css">
+            </head>
+            <body>
+                <main style="max-width:400px;margin:50px auto;text-align:center;">
+                    <h2>Acceso protegido</h2>
+                    <form method="POST" action="/login">
+                        <input type="password" name="password" placeholder="Contraseña" required>
+                        <button type="submit">Ingresar</button>
+                    </form>
+                </main>
+            </body>
+            </html>
+            """
+            self.wfile.write(html.encode("utf-8"))
+            return  # ⛔ IMPORTANTE: corta aquí
+        
         # Enrutado inicial a la página principal
         if ruta == "/":
             ruta = "/index.html"
@@ -27,7 +54,7 @@ class MiServidor(BaseHTTPRequestHandler):
         # Verificación y envío de archivos estáticos
         if os.path.isfile(archivo):
             self.send_response(200)
-
+            
             # Asignación de Content-Type según extensión
             if archivo.endswith(".html"):
                 self.send_header("Content-Type", "text/html; charset=utf-8")
@@ -51,6 +78,31 @@ class MiServidor(BaseHTTPRequestHandler):
     # PETICIONES POST: Procesamiento de datos del formulario
     def do_POST(self):
 
+        if self.path == "/login":
+            content_length = int(self.headers["Content-Length"])
+            body = self.rfile.read(content_length).decode("utf-8")
+            datos = parse_qs(body)
+
+            password = datos.get("password", [""])[0]
+
+            if password == "admin123":  # contraseña simple
+                self.send_response(302)
+                self.send_header("Location", "/ver_mensajes")
+                self.end_headers()
+            else:
+                self.send_response(200)
+                self.send_header("Content-Type", "text/html; charset=utf-8")
+                self.end_headers()
+                self.wfile.write("""
+                <html>
+                <body style="text-align:center;margin-top:50px;">
+                    <h2>Contraseña incorrecta</h2>
+                    <a href="/admin">Volver</a>
+                </body>
+                </html>
+                """.encode("utf-8"))
+            return
+        
         if self.path == "/enviar":
             content_length = int(self.headers["Content-Length"])
             body = self.rfile.read(content_length).decode("utf-8")
