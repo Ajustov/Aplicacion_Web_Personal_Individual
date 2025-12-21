@@ -1,6 +1,16 @@
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from urllib.parse import parse_qs
+from datetime import datetime
 import os
+import mysql.connector
+
+# CONFIGURACIÓN DE LA BASE DE DATOS MYSQL
+db_config = {
+    "host": "localhost",
+    "user": "root",
+    "password": "",      # cambia si tu MySQL tiene contraseña
+    "database": "contactos_db"
+}
 
 class MiServidor(BaseHTTPRequestHandler):
 
@@ -40,12 +50,15 @@ class MiServidor(BaseHTTPRequestHandler):
 
     # PETICIONES POST: Procesamiento de datos del formulario
     def do_POST(self):
+
         if self.path == "/enviar":
             content_length = int(self.headers["Content-Length"])
             body = self.rfile.read(content_length).decode("utf-8")
 
             # Parseo de datos recibidos
             datos = parse_qs(body)
+            mensaje = datos.get("mensaje", [""])[0]
+            fecha_envio = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
             nombre = datos.get("nombre", [""])[0]
             email = datos.get("email", [""])[0]
@@ -61,7 +74,7 @@ class MiServidor(BaseHTTPRequestHandler):
                 f.write(f"Asunto: {asunto}\n")
                 f.write(f"Fecha nacimiento: {fecha}\n")
                 f.write(f"Mensaje: {mensaje}\n\n")
-
+                
             # RESPUESTA: Generación de confirmación en HTML
             self.send_response(200)
             self.send_header("Content-Type", "text/html; charset=utf-8")
