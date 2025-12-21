@@ -103,7 +103,6 @@ class MiServidor(BaseHTTPRequestHandler):
                 """.encode("utf-8"))
             return
         
-        
         if self.path == "/enviar":
             content_length = int(self.headers["Content-Length"])
             body = self.rfile.read(content_length).decode("utf-8")
