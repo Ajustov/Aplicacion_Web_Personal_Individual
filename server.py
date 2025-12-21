@@ -75,6 +75,28 @@ class MiServidor(BaseHTTPRequestHandler):
                 f.write(f"Fecha nacimiento: {fecha}\n")
                 f.write(f"Mensaje: {mensaje}\n\n")
                 
+            # ALMACENAMIENTO: Guardar mensaje en MySQL
+            try:
+                conexion = mysql.connector.connect(**db_config)
+                cursor = conexion.cursor()
+
+                sql = """
+                    INSERT INTO mensajes
+                    (nombre, email, asunto, fecha_nacimiento, mensaje, fecha_envio)
+                    VALUES (%s, %s, %s, %s, %s, %s)
+                """
+
+                valores = (nombre, email, asunto, fecha, mensaje, fecha_envio)
+
+                cursor.execute(sql, valores)
+                conexion.commit()
+
+                cursor.close()
+                conexion.close()
+
+            except Exception as e:
+                print("Error al guardar en MySQL:", e)
+
             # RESPUESTA: Generación de confirmación en HTML
             self.send_response(200)
             self.send_header("Content-Type", "text/html; charset=utf-8")
