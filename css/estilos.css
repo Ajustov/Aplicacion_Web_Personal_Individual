@@ -257,3 +257,14 @@ footer::before {
 .boton:hover {
     background-color: #3730a3;
 }
+
+input.error, textarea.error {
+    border: 2px solid #e74c3c;
+}
+
+.error-text {
+    color: #e74c3c;
+    font-size: 0.8rem;
+    margin-top: 4px;
+    display: block;
+}

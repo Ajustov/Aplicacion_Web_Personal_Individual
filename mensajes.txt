@@ -1,8 +1,35 @@
 ---- NUEVO MENSAJE ----
+Nombre: Carlos Marcona Perez Diaz
+Email: carlos@example.com
+Asunto: Tarea para probar
+Fecha nacimiento: 2009-01-29
+Mensaje: Buenas tardes, solo pruebo server.py y que la pagina este conectada correctamente a la base de datos conexion_db.
+
+---- NUEVO MENSAJE ----
 Nombre: Maria Julia Alvarez del Rio
 Email: maria@example.com
 Asunto: Tarea para probar (2)
 Fecha nacimiento: 2009-01-29
-Mensaje: Buenas tardes, solo pruebo server.py y que la pagina este conectada correctamente a la base de datos conexion_db.(2)
+Mensaje: Buenas tardes, solo pruebo server.py y que la pagina este conectada correctamente a la base de datos conexion_db.(2)
 
+---- NUEVO MENSAJE ----
+Nombre: Ernesto Alvarez Guitierrez Alfaro
+Email: ernesto@example.com
+Asunto: Tarea para probar 3
+Fecha nacimiento: 
+Mensaje: Buenas tardes, solo pruebo la pagina web.
+
+---- NUEVO MENSAJE ----
+Nombre: Julio Alberto Ramirez Sanchez
+Email: julio@example.com
+Asunto: Tarea para probar 4
+Fecha nacimiento: 2000-07-20
+Mensaje: Buenas tardes, solo pruebo la pagina web.
+
+---- NUEVO MENSAJE ----
+Nombre: Royer Salvador Mamani Durán
+Email: royer@example.com
+Asunto: Tarea para probar 5
+Fecha nacimiento: 2002-07-22
+Mensaje: Buenas tardes, solo pruebo la pagina web.
 
