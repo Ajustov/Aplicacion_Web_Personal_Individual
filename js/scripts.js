@@ -29,10 +29,12 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // FORMULARIO: Validación general y simulación de envío
+    // FORMULARIO: Validación general y envío a Python
     if (form) {
         form.addEventListener("submit", function(e) {
-            // e.preventDefault(); // Evita envío automático si hay errores
+            
+            // Evita el envío automático para poder validar primero
+            e.preventDefault();
 
             // REFERENCIAS A INPUTS
             const nombreInput = document.getElementById("nombre");
@@ -81,24 +83,16 @@ document.addEventListener("DOMContentLoaded", function() {
                 hayErrores = true;
             }
 
-            // DETENER ENVÍO SI HAY ERRORES
+            // SI HAY ERRORES: No se envía nada y se detiene el proceso
             if (hayErrores) return;
 
-            // ESTADO VISUAL: Botón en modo carga
+            // SI NO HAY ERRORES: Procedemos con el envío a Python
             const submitBtn = form.querySelector('button[type="submit"]');
             submitBtn.textContent = "Enviando...";
-            submitBtn.classList.add("loading");
             submitBtn.disabled = true;
 
-            // SIMULACIÓN DE ENVÍO
-            setTimeout(() => {
-                alert("¡Mensaje enviado correctamente!");
-                form.reset();
-                if (edadTexto) edadTexto.textContent = "";
-                submitBtn.textContent = "Enviar";
-                submitBtn.classList.remove("loading");
-                submitBtn.disabled = false;
-            }, 1000);
+            // Comando que envía el formulario al servidor Python
+            form.submit(); 
         });
     }
 

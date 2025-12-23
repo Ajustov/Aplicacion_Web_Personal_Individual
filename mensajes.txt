@@ -33,3 +33,17 @@ Asunto: Tarea para probar 5
 Fecha nacimiento: 2002-07-22
 Mensaje: Buenas tardes, solo pruebo la pagina web.
 
+---- NUEVO MENSAJE ----
+Nombre: 2312
+Email: ernesto@example.com
+Asunto: 2
+Fecha nacimiento: 
+Mensaje: 212321d
+
+---- NUEVO MENSAJE ----
+Nombre: Ernesto Alvarez Guitierrez Alfaro
+Email: ernesto@example.com
+Asunto: 21e
+Fecha nacimiento: 
+Mensaje: Buenas tardes, solo pruebo la pagina web.
+
