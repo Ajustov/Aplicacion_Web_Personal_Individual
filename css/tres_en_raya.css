@@ -7,7 +7,6 @@
     font-family: Arial, sans-serif;
 }
 
-
 /* TÍTULO JUEGO: Estilo limpio y eliminación de efectos heredados */
 #tresEnRaya h2 {
     margin-bottom: 20px;
@@ -18,12 +17,10 @@
     animation: none !important;
 }
 
-
 /* DECORACIÓN: Desactiva el subrayado de otros h2 del sitio */
 #tresEnRaya h2::after {
     content: none !important;
 }
-
 
 /* TABLERO: Cuadrícula de 3x3 con celdas de 120px */
 #tablero {
@@ -32,7 +29,6 @@
     grid-template-rows: repeat(3, 120px);
     gap: 10px;
 }
-
 
 /* CASILLA: Celdas interactivas con símbolos grandes y centrados */
 .casilla {
@@ -47,13 +43,11 @@
     transition: transform 0.2s, background-color 0.2s;
 }
 
-
 /* HOVER CASILLA: Resalta la celda */
 .casilla:hover {
     background-color: #d1e7ff;
     transform: scale(1.05);
 }
-
 
 /* CASILLA OCUPADA: Evita interacción */
 .casilla.ocupada {
@@ -68,7 +62,6 @@
     box-shadow: 0 0 15px rgba(76, 175, 80, 0.8);
 }
 
-
 /* MENSAJE: Texto de estado del turno o resultado */
 #tresEnRaya #mensaje {
     font-size: 20px;
@@ -78,18 +71,15 @@
     color: #333;
 }
 
-
 /* MENSAJE GANADOR */
 #mensaje.ganador {
     color: #2e7d32;
 }
 
-
 /* MENSAJE EMPATE */
 #mensaje.empate {
     color: #f57c00;
 }
-
 
 /* REINICIAR: Botón verde con bordes curvos */
 #reiniciar {

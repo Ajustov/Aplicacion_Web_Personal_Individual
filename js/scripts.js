@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const edadTexto = document.getElementById("edad");
     const botonInfo = document.getElementById("mostrar-info");
     const infoExtra = document.getElementById("informacion-adicional");
-
+    
     // FORMULARIO: Validación y simulación de envío
     if (form) {
         form.addEventListener("submit", function(e) {
@@ -49,12 +49,30 @@ document.addEventListener("DOMContentLoaded", function() {
             const hoy = new Date();
 
             if (!isNaN(fecha)) {
+
+                // Evitar fechas futuras
+                if (fecha > hoy) {
+                    alert("La fecha de nacimiento no puede ser futura.");
+                    fechaNacimiento.value = "";
+                    edadTexto.textContent = "";
+                    return;
+                }
+
                 let edad = hoy.getFullYear() - fecha.getFullYear();
                 const mes = hoy.getMonth() - fecha.getMonth();
 
                 if (mes < 0 || (mes === 0 && hoy.getDate() < fecha.getDate())) {
                     edad--;
                 }
+
+                // Mínimo 1 año
+                if (edad < 1) {
+                    alert("Debes tener al menos 1 año de edad.");
+                    fechaNacimiento.value = "";
+                    edadTexto.textContent = "";
+                    return;
+                }
+
                 edadTexto.textContent = "Edad: " + edad + " años";
             } else {
                 edadTexto.textContent = "";
